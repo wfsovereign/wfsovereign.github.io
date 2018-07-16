@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    
+    <title>初识TDD | f.君</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="TDD，测试驱动开发（Test Driven Development）是极限编程中倡导的程序开发方法，以其倡导先写测试程序，然后编码实现其功能得名。本文将对TDD有一个较为系统的认识。 基础起源：20世纪90年代。 性质：一种由极限编程倡导的程序开发方法。 中心思想：先写测试程序，然后编码实现其功能。 目的：取得快速反馈并使用“illustrate the main line”方法来构建程序。 开">
+<meta name="keywords" content="成长,总结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初识TDD">
+<meta property="og:url" content="http://wfsovereign.github.io/2015/01/02/初识TDD/index.html">
+<meta property="og:site_name" content="f.君">
+<meta property="og:description" content="TDD，测试驱动开发（Test Driven Development）是极限编程中倡导的程序开发方法，以其倡导先写测试程序，然后编码实现其功能得名。本文将对TDD有一个较为系统的认识。 基础起源：20世纪90年代。 性质：一种由极限编程倡导的程序开发方法。 中心思想：先写测试程序，然后编码实现其功能。 目的：取得快速反馈并使用“illustrate the main line”方法来构建程序。 开">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-06-27T14:17:42.405Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="初识TDD">
+<meta name="twitter:description" content="TDD，测试驱动开发（Test Driven Development）是极限编程中倡导的程序开发方法，以其倡导先写测试程序，然后编码实现其功能得名。本文将对TDD有一个较为系统的认识。 基础起源：20世纪90年代。 性质：一种由极限编程倡导的程序开发方法。 中心思想：先写测试程序，然后编码实现其功能。 目的：取得快速反馈并使用“illustrate the main line”方法来构建程序。 开">
+    
+
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome5/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/libs/font-awesome5/css/fa-brands.min.css">
+    <link rel="stylesheet" href="/libs/font-awesome5/css/fa-solid.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-82443456-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">f.君</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">Home</a>
+                
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+                    <a class="main-nav-link" href="/categories">Categories</a>
+                
+                    <a class="main-nav-link" href="/tags">Tags</a>
+                
+                    <a class="main-nav-link" href="/about">About</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.jpg" />
+                            <i class="fas fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fas fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">Categories</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">Tags</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">About</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile" class="profile-fixed">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.jpg" />
+            <h2 id="name">wfsovereign</h2>
+            <h3 id="title">Developer &amp; Designer</h3>
+            <span id="location"><i class="fas fa-map-marker-alt" style="padding-right: 5px"></i>Chengdu, China</span>
+            <a id="follow" target="_blank" href="https://github.com/wfsovereign">FOLLOW</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                27
+                <span>posts</span>
+            </div>
+            <div class="article-info-block">
+                34
+                <span>tags</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://github.com/wfsovereign" target="_blank" title="github" class=tooltip>
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-初识TDD" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            初识TDD
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fas fa-calendar-alt"></i>
+        <a href="/2015/01/02/初识TDD/">
+            <time datetime="2015-01-02T06:13:14.000Z" itemprop="datePublished">2015-01-02</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fas fa-folder"></i>
+        <a class="article-category-link" href="/categories/TDD/">TDD</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/总结/">总结</a>, <a class="tag-link" href="/tags/成长/">成长</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>TDD，测试驱动开发（Test Driven Development）是极限编程中倡导的程序开发方法，以其倡导先写测试程序，然后编码实现其功能得名。本文将对TDD有一个较为系统的认识。</p>
+<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><p>起源：20世纪90年代。</p>
+<p>性质：一种由极限编程倡导的程序开发方法。</p>
+<p>中心思想：先写测试程序，然后编码实现其功能。</p>
+<p>目的：取得快速反馈并使用“illustrate the main line”方法来构建程序。</p>
+<h2 id="开发方式"><a href="#开发方式" class="headerlink" title="开发方式"></a>开发方式</h2><ul>
+<li>戴两顶帽子的开发方式</li>
+</ul>
+<ol>
+<li>戴实现功能的帽子,在测试的辅助下,快速实现其功能。</li>
+<li>戴上重构的帽子,在测试的保护下,通过去除冗余的代码,提高代码质量。</li>
+</ol>
+<ul>
+<li>中心思想</li>
+</ul>
+<p>测试驱动着整个开发过程。</p>
+<ol>
+<li><p>驱动代码的设计和功能的实现。</p>
+</li>
+<li><p>驱动代码的再设计和重构。</p>
+</li>
+</ol>
+<h2 id="测-试"><a href="#测-试" class="headerlink" title="测 试"></a>测 试</h2><ul>
+<li>特征</li>
+</ul>
+<blockquote>
+<p>测试驱动开发是需求分析和详细设计的范畴,在代码基本完毕以后,并且这些测试也成为单元测试的一个部分。</p>
+</blockquote>
+<ul>
+<li>要点</li>
+</ul>
+<blockquote>
+<p>可读性甚至比生产代码更重要，明确，简洁，足够的表达力。</p>
+</blockquote>
+<ul>
+<li>一般模式</li>
+</ul>
+<blockquote>
+<p>构造数据 — 操作数据 — 检验数据</p>
+</blockquote>
+<ul>
+<li>遵循的规则</li>
+</ul>
+<blockquote>
+<ol>
+<li><p>单个测试中断言数量应该最小化，可以快速方便地理解其结论。</p>
+</li>
+<li><p>每个测试一个概念，即每个测试函数只做一件事。</p>
+</li>
+<li><p>F.I.R.S.T原则</p>
+<p>快    速（First）：能够快速运行。</p>
+<p>独    立（Independence）：可单独运行每个测试，也就是说可以任何顺序运行测试。</p>
+<p>可重复（Repeat）：在任何环境中测试均能通过。</p>
+<p>自动验证（Spontaneous Verification）：应有布尔值输出。</p>
+<p>及    时（Timely）：应在生产代码之前编写。</p>
+</li>
+</ol>
+</blockquote>
+<h2 id="TDD三定律"><a href="#TDD三定律" class="headerlink" title="TDD三定律"></a>TDD三定律</h2><ol>
+<li><p>在编写不能通过的单元测试前,不可编写生产代码。</p>
+</li>
+<li><p>只可编写刚好无法通过的单元测试,不能编译也算不通过。</p>
+</li>
+<li><p>只可编写刚好足以通过当前失败测试的生产代码。</p>
+</li>
+</ol>
+<p>　　总的来说就是先写测试再写生产代码，写一个测试就应该立即写它的实现代码。</p>
+<h2 id="评-价"><a href="#评-价" class="headerlink" title="评 价"></a>评 价</h2><h3 id="正面"><a href="#正面" class="headerlink" title="正面"></a>正面</h3><ol>
+<li>可以有效避免过度设计带来的浪费。</li>
+<li>可以让开发者在开发中拥有更全面的视角。</li>
+<li>确保所有需求都能被照顾到。</li>
+</ol>
+<h3 id="负面"><a href="#负面" class="headerlink" title="负面"></a>负面</h3><ol>
+<li>过度关注用例和测试案例,而不是设计本身。</li>
+<li>可能会导致单元测试的覆盖度不够,比如可能缺乏边界测试。</li>
+<li>放慢开发实际代码的速度。</li>
+<li>对于GUI,资料库和Web应用而言,构造单元测试比较困难,若强行构造单元测试,反而会给维护带来额外的工作量。</li>
+<li>test case  并没有那么好写,如果说我们开发的Test Case是用来保证我们代码实现的正确性，那么，谁又来保证我们的Test Case的正确性呢？</li>
+</ol>
+<h2 id="我的感悟"><a href="#我的感悟" class="headerlink" title="我的感悟"></a>我的感悟</h2><p>　　使用TDD完成过一个小游戏项目，感觉TDD的开发方式让我觉得有了另一种思维开发方式，从这个项目的各个功能点来写测试，并通过测试来实现我们的生产代码。以前完成一个项目是自上而下的思维，就是站在一个宏观的角度，来全局总览这个项目，那么最开始的时候就得考虑很多，这个时候最容易陷入细节误区了，即会细化到某些细节难以控制自己的思维。现在接触TDD之后，给我的感觉就是自下而上了。不考虑全局的东西，我一个小功能一个小功能的实现，曾经是从树顶来做，现在是从树根了，每一个根节点实现了我往上一层一层加起来，最后就是一棵树了，哈哈~
+　　</p>
+<blockquote>
+<p>ps: ps：本文内容若是有误或者迷糊，还请指正或指出。</p>
+</blockquote>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://wfsovereign.github.io/2015/01/02/初识TDD/" data-id="cjje2u1qe000txrct2tqrh4ed" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://wfsovereign.github.io/2015/01/02/初识TDD/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://wfsovereign.github.io/2015/01/02/初识TDD/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2015/02/01/阶段随想/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    阶段随想
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2014/12/26/ignore文件的创建与使用/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">ignore文件的创建与使用</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+        <section id="comments">
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+</section>
+    
+
+</section>
+            
+                
+<aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">recent</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/07/09/国家命运与个人命运/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/thumbnail/people-lixiao.jpeg)" alt="国家命运与个人命运" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/术/">术</a></p>
+                            <p class="item-title"><a href="/2018/07/09/国家命运与个人命运/" class="title">国家命运与个人命运</a></p>
+                            <p class="item-date"><time datetime="2018-07-09T08:56:33.000Z" itemprop="datePublished">2018-07-09</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/10/NGINX按天生成日志文件的简易配置/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/thumbnail/nginx.png)" alt="NGINX按天生成日志文件的简易配置" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/经历/">经历</a></p>
+                            <p class="item-title"><a href="/2018/05/10/NGINX按天生成日志文件的简易配置/" class="title">NGINX按天生成日志文件的简易配置</a></p>
+                            <p class="item-date"><time datetime="2018-05-10T09:45:27.000Z" itemprop="datePublished">2018-05-10</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/01/09/2017-self-review/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/thumbnail/apple-pen.jpg)" alt="2017 self review" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/经历/">经历</a></p>
+                            <p class="item-title"><a href="/2018/01/09/2017-self-review/" class="title">2017 self review</a></p>
+                            <p class="item-date"><time datetime="2018-01-09T06:23:24.000Z" itemprop="datePublished">2018-01-09</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/04/04/NPM使用技巧/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/thumbnail/npm.jpg)" alt="NPM使用技巧" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/npm/">npm</a></p>
+                            <p class="item-title"><a href="/2017/04/04/NPM使用技巧/" class="title">NPM使用技巧</a></p>
+                            <p class="item-date"><time datetime="2017-04-04T13:53:46.000Z" itemprop="datePublished">2017-04-04</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/01/04/learn-from-refactor/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/thumbnail/keyboard.jpg)" alt="重构老项目所悟" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/术/">术</a></p>
+                            <p class="item-title"><a href="/2017/01/04/learn-from-refactor/" class="title">重构老项目所悟</a></p>
+                            <p class="item-date"><time datetime="2017-01-04T13:39:54.000Z" itemprop="datePublished">2017-01-04</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TDD/">TDD</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/angular2/">angular2</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/npm/">npm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/交流分享/">交流分享</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/术/">术</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/经历/">经历</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/NGINX/">NGINX</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TWI/">TWI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThoughtWorks/">ThoughtWorks</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ignore/">ignore</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/">npm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/picbling/">picbling</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/refactor/">refactor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/">shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/typescript/">typescript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人学习翻译/">个人学习翻译</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代理模式/">代理模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/单例模式/">单例模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/原型/">原型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习/">学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/对象/">对象</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工作/">工作</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工厂模式/">工厂模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/志愿者/">志愿者</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总结/">总结</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/成长/">成长</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文件/">文件</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/方法记录/">方法记录</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/独立/">独立</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/重构/">重构</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/NGINX/" style="font-size: 10px;">NGINX</a> <a href="/tags/TWI/" style="font-size: 10px;">TWI</a> <a href="/tags/ThoughtWorks/" style="font-size: 10px;">ThoughtWorks</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/ignore/" style="font-size: 10px;">ignore</a> <a href="/tags/java/" style="font-size: 14px;">java</a> <a href="/tags/javascript/" style="font-size: 16px;">javascript</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/nodejs/" style="font-size: 12px;">nodejs</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/picbling/" style="font-size: 10px;">picbling</a> <a href="/tags/refactor/" style="font-size: 10px;">refactor</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/typescript/" style="font-size: 10px;">typescript</a> <a href="/tags/个人学习翻译/" style="font-size: 12px;">个人学习翻译</a> <a href="/tags/代理模式/" style="font-size: 10px;">代理模式</a> <a href="/tags/单例模式/" style="font-size: 10px;">单例模式</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/学习/" style="font-size: 10px;">学习</a> <a href="/tags/对象/" style="font-size: 10px;">对象</a> <a href="/tags/工作/" style="font-size: 12px;">工作</a> <a href="/tags/工厂模式/" style="font-size: 10px;">工厂模式</a> <a href="/tags/志愿者/" style="font-size: 10px;">志愿者</a> <a href="/tags/总结/" style="font-size: 16px;">总结</a> <a href="/tags/成长/" style="font-size: 20px;">成长</a> <a href="/tags/文件/" style="font-size: 12px;">文件</a> <a href="/tags/方法记录/" style="font-size: 18px;">方法记录</a> <a href="/tags/独立/" style="font-size: 12px;">独立</a> <a href="/tags/设计模式/" style="font-size: 14px;">设计模式</a> <a href="/tags/重构/" style="font-size: 10px;">重构</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fas fa-angle-up"></div>
+</aside>
+
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2018 wfsovereign<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_config = function () {
+        
+            this.page.url = 'http://wfsovereign.github.io/2015/01/02/初识TDD/';
+        
+        this.page.identifier = '初识TDD';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'wfsovereign-blog' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

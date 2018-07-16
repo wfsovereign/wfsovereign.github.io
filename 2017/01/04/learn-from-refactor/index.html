@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    
+    <title>重构老项目所悟 | f.君</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="0x016月份的那个时候，刚进ThoughtWorks不久，工作上也没有太多的事情，然后就天真的以为在骚窝的节奏应该一直就是这样的吧，所以，便给接下来的几个月定了一些小目标，其中就包括整理github已提交代码，因为github上的东西真的太老了。可没想到接下来的几个项目以及北京Nodejs社区的事情让我基本没啥时间来做这些小目标了.. 前两天，正好前端入门级的朋友来找我取经，我就在我的repo里">
+<meta name="keywords" content="方法记录,成长,重构,refactor">
+<meta property="og:type" content="article">
+<meta property="og:title" content="重构老项目所悟">
+<meta property="og:url" content="http://wfsovereign.github.io/2017/01/04/learn-from-refactor/index.html">
+<meta property="og:site_name" content="f.君">
+<meta property="og:description" content="0x016月份的那个时候，刚进ThoughtWorks不久，工作上也没有太多的事情，然后就天真的以为在骚窝的节奏应该一直就是这样的吧，所以，便给接下来的几个月定了一些小目标，其中就包括整理github已提交代码，因为github上的东西真的太老了。可没想到接下来的几个项目以及北京Nodejs社区的事情让我基本没啥时间来做这些小目标了.. 前两天，正好前端入门级的朋友来找我取经，我就在我的repo里">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://wfsovereign.github.io/thumbnail/keyboard.jpg">
+<meta property="og:updated_time" content="2018-06-27T14:17:42.404Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="重构老项目所悟">
+<meta name="twitter:description" content="0x016月份的那个时候，刚进ThoughtWorks不久，工作上也没有太多的事情，然后就天真的以为在骚窝的节奏应该一直就是这样的吧，所以，便给接下来的几个月定了一些小目标，其中就包括整理github已提交代码，因为github上的东西真的太老了。可没想到接下来的几个项目以及北京Nodejs社区的事情让我基本没啥时间来做这些小目标了.. 前两天，正好前端入门级的朋友来找我取经，我就在我的repo里">
+<meta name="twitter:image" content="http://wfsovereign.github.io/thumbnail/keyboard.jpg">
+    
+
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome5/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/libs/font-awesome5/css/fa-brands.min.css">
+    <link rel="stylesheet" href="/libs/font-awesome5/css/fa-solid.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-82443456-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">f.君</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">Home</a>
+                
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+                    <a class="main-nav-link" href="/categories">Categories</a>
+                
+                    <a class="main-nav-link" href="/tags">Tags</a>
+                
+                    <a class="main-nav-link" href="/about">About</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.jpg" />
+                            <i class="fas fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fas fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">Categories</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">Tags</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">About</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile" class="profile-fixed">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.jpg" />
+            <h2 id="name">wfsovereign</h2>
+            <h3 id="title">Developer &amp; Designer</h3>
+            <span id="location"><i class="fas fa-map-marker-alt" style="padding-right: 5px"></i>Chengdu, China</span>
+            <a id="follow" target="_blank" href="https://github.com/wfsovereign">FOLLOW</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                27
+                <span>posts</span>
+            </div>
+            <div class="article-info-block">
+                34
+                <span>tags</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://github.com/wfsovereign" target="_blank" title="github" class=tooltip>
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-learn-from-refactor" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            
+	
+		<img src="/thumbnail/keyboard.jpg" class="article-banner" />
+	
+
+
+
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            重构老项目所悟
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fas fa-calendar-alt"></i>
+        <a href="/2017/01/04/learn-from-refactor/">
+            <time datetime="2017-01-04T13:39:54.000Z" itemprop="datePublished">2017-01-04</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fas fa-folder"></i>
+        <a class="article-category-link" href="/categories/术/">术</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/refactor/">refactor</a>, <a class="tag-link" href="/tags/成长/">成长</a>, <a class="tag-link" href="/tags/方法记录/">方法记录</a>, <a class="tag-link" href="/tags/重构/">重构</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h2 id="0x01"><a href="#0x01" class="headerlink" title="0x01"></a>0x01</h2><p>6月份的那个时候，刚进ThoughtWorks不久，工作上也没有太多的事情，然后就天真的以为在骚窝的节奏应该一直就是这样的吧，所以，便给接下来的几个月定了一些小目标，其中就包括整理github已提交代码，因为github上的东西真的太老了。可没想到接下来的几个项目以及北京Nodejs社区的事情让我基本没啥时间来做这些小目标了..</p>
+<p>前两天，正好前端入门级的朋友来找我取经，我就在我的repo里面找了一个能跑起来且适合他的<a href="https://github.com/wfsovereign/pos-jquery" target="_blank" rel="noopener">项目</a>推荐给他。虽然我将这个<a href="https://github.com/wfsovereign/pos-jquery" target="_blank" rel="noopener">项目</a>给他了，可这样的项目拿出去我是会脸红的，所以改造开始了..</p>
+<h2 id="0x02"><a href="#0x02" class="headerlink" title="0x02"></a>0x02</h2><p>首先，我加上了README。README基本的功能是告诉来访者这个项目做了什么，以及如何工作的。当然一个比较完善的README一般会包括如下部分：</p>
+<ul>
+<li>Installation</li>
+<li>Example/Usage/Quickstart/Getting Started</li>
+<li>Features</li>
+<li>FAQ</li>
+<li>API References/Docs/Community</li>
+<li>Tests</li>
+<li>contributing</li>
+<li>contributors</li>
+<li>License</li>
+</ul>
+<a id="more"></a>
+<p>差不多就这些了，然后剩下的一般是专属该项目的部分了。</p>
+<p>有了README之后，发现这个项目还没有.gitignore！gitignore可是保证项目干净的利器啊，于是立马给加上了。gitignore怎么用，已经写过<a href="http://wfsovereign.github.io/2014/12/26/ignore%E6%96%87%E4%BB%B6%E7%9A%84%E5%88%9B%E5%BB%BA%E4%B8%8E%E4%BD%BF%E7%94%A8/">一篇文</a>大概介绍了，有兴趣可以看看。这里，我再说说，项目里面，一般什么东西是不应该被push的。中心思想就是，项目的外部依赖库都是不应该被push到repository的。为什么呢？因为这种外部依赖库都是与我们项目没有关系的独立库，我们可以把它们看作是工具库里面的一种工具，我们的项目只是使用了该工具，但是这个工具的源代码跟咱们项目的源代码是不应该在一个代码仓库的。正好，我这次重构的项目就是一个很好的例子。在这个项目里面的dist文件夹里面有着Bootstrap和jQuery的源码，他们是应该被提交到这里的。那么我们应该怎么做呢？方法比较多，这里介绍两个。第一个，我们现在的npm库很强大了，基本该有的都有了，Bootstrap和jQuery都有，我们可以通过npm安装它们，然后在需要用到的地方引用。第二，不想用npm，当然也可以用bower这样的工具来下载，这东西主要就是Web端的包管理工具，bower install 下载的package默认会安装在bower_components文件夹下面，当然我们也可以通过.bowerrc文件来指定安装的目录。不过，在npm一统天下的今天，bower使用的场景真是越来越少了。ok，我们来总结一下哪些文件是gitignore的常客吧。</p>
+<ul>
+<li>node_modules </li>
+</ul>
+<blockquote>
+<p>这个就不多做解释了，里面都是外部依赖库</p>
+</blockquote>
+<ul>
+<li>dist/build</li>
+</ul>
+<blockquote>
+<p>这个一般是打包之后的资源文件夹，对于前端项目来说，这个文件夹内的东西一般是可以直接丢到Nginx里被代理了。</p>
+</blockquote>
+<ul>
+<li>coverage</li>
+</ul>
+<blockquote>
+<p>这个一般是在运行项目测试覆盖率的时候生成的文件夹，在里面我们能看到整个项目和各个文件的测试覆盖率。</p>
+</blockquote>
+<ul>
+<li>log/*.log</li>
+</ul>
+<blockquote>
+<p>这里一般是项目运行时记录的日志文件</p>
+</blockquote>
+<ul>
+<li>typings</li>
+</ul>
+<blockquote>
+<p>该文件夹为我们在使用typescript的时候所需要的各种类型的声明的地方。</p>
+</blockquote>
+<h2 id="0x03"><a href="#0x03" class="headerlink" title="0x03"></a>0x03</h2><p>接下来就是源代码了。代码，在可用的前提下首先应该是整洁干净的，这样才会让自己写的舒心，让他人看的省心。所以，我清理了注释代码，无效的文件以及debug的console。接下来，就是代码质量了。毕竟过去快两年了，看当年的东西觉得到处都是问题。</p>
+<p>我们先来看一段代码，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">judge_exist_barcode</span>(<span class="params">item, promote</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> judge_bar;</span><br><span class="line">  _.each(promote, <span class="function"><span class="keyword">function</span> (<span class="params">pro</span>) </span>&#123;</span><br><span class="line">    judge_bar = _.find(pro.barcodes, <span class="function"><span class="keyword">function</span> (<span class="params">p</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (p == item.barcode) &#123;</span><br><span class="line">        <span class="keyword">return</span> p;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">return</span> judge_bar != <span class="literal">undefined</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>问题挺多的，咱一个一个的看。</p>
+<h3 id="函数名"><a href="#函数名" class="headerlink" title="函数名"></a>函数名</h3><p>首先，这个函数的名字是judge_exist_barcode，然后看到返回值是一个Boolean值，再结合两个参数可以判断出这个方法的主要功能是要判断传入的参数的barcode是否能在另一个对象中找到。当一个函数的返回值或者变量的值的类型是Boolean的时候，我们一般倾向于用 <strong>is</strong>、<strong>has</strong>、<strong>should</strong>等词来开头，因为这样更表意，比如，如果把这里的judge如果换成has是不是就更好了。最后我们在根据函数的功能给它取一个新的名字，<strong>has_promotional_barcode</strong>，这个名字是不是就棒多了啊 ：）</p>
+<h3 id="逻辑"><a href="#逻辑" class="headerlink" title="逻辑"></a>逻辑</h3><p>这里的代码逻辑比较简单，一眼就能看出来是做了什么。首先，promote是一个可迭代对象，使用underscore的each方法遍历promote，然后在promote的每一个子对象的barcodes中查找是否有和传入参数对象item的barcode相等的值，如果有，就给预先定义好的一个标识judge_bar赋值。那么，一句话总结一下这个功能，查询item对象的barcode是否有在promote的子对象的barcodes中出现。清楚了逻辑之后，再看看代码，便知道这个judge_bar变量名是一定有问题的，然后再看看each和find方法，能够看出作为新手对underscore/lodash提供的接口不够了解。</p>
+<blockquote>
+<p>ps: 所以，这里我建议，刚接触这个工具库的朋友可以先把他们的文档快速、完整的浏览一遍，大概知道了它提供了哪些工具方法，这样在工作中遇到也能够快速查文档来使用。这里我推荐使用<a href="https://lodash.com/docs/4.17.4" target="_blank" rel="noopener">Lodash</a>，为什么呢？因为lodash在一定程度上有更优秀的性能，提供更多的工具和更快的更新，如果你想了解更多，可以自己尝试测试他们，或者来<a href="http://stackoverflow.com/questions/13789618/differences-between-lodash-and-underscore" target="_blank" rel="noopener">这里</a>找找答案。</p>
+</blockquote>
+<p>查询一个值是否存在于另一个对象中我们可以用<em>.some或者</em>.includes，前者是对可迭代对象的子对象进行匹配校验，用于对象之类的匹配或者key值校验，支持identity function；后者也是对可迭代对象的子元素进行校验，不支持identity，用于value值校验。再加上我们对context的理解，原代码就能够重构成这样</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">has_promotional_barcode</span>(<span class="params">item, promotions</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> _.some(promotions, <span class="function"><span class="keyword">function</span> (<span class="params">promotion</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> _.include(promotion.barcodes, item.barcode);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>首先，行数的缩减是最直观的感受，其次，语义上没有损失，可以像阅读课文一样容易的来理解。那么，重构到这里就结束了吗？</p>
+<h2 id="0x04"><a href="#0x04" class="headerlink" title="0x04"></a>0x04</h2><p>重构其实才刚刚开始。正确的重构方式，应该是先为现有代码加上测试。这样，我们才能够安心的去重构，不必担心因为自己的重构而导致代码的行为与之前的有不一致情况。所以，前面提到过的<a href="http://www.cnblogs.com/wfsovereign/p/4198209.html" target="_blank" rel="noopener">TDD</a>，不就可以抓起来了嘛 ：）</p>
+<blockquote>
+<p>ps: 新年新气象[Yeah!]</p>
+</blockquote>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://wfsovereign.github.io/2017/01/04/learn-from-refactor/" data-id="cjje2u1qa000ixrcte0jonjko" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://wfsovereign.github.io/2017/01/04/learn-from-refactor/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://wfsovereign.github.io/2017/01/04/learn-from-refactor/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/04/04/NPM使用技巧/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    NPM使用技巧
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2016/12/05/My-TWI/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">My TWI</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+        <section id="comments">
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+</section>
+    
+
+</section>
+            
+                
+<aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">recent</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/07/09/国家命运与个人命运/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/thumbnail/people-lixiao.jpeg)" alt="国家命运与个人命运" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/术/">术</a></p>
+                            <p class="item-title"><a href="/2018/07/09/国家命运与个人命运/" class="title">国家命运与个人命运</a></p>
+                            <p class="item-date"><time datetime="2018-07-09T08:56:33.000Z" itemprop="datePublished">2018-07-09</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/10/NGINX按天生成日志文件的简易配置/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/thumbnail/nginx.png)" alt="NGINX按天生成日志文件的简易配置" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/经历/">经历</a></p>
+                            <p class="item-title"><a href="/2018/05/10/NGINX按天生成日志文件的简易配置/" class="title">NGINX按天生成日志文件的简易配置</a></p>
+                            <p class="item-date"><time datetime="2018-05-10T09:45:27.000Z" itemprop="datePublished">2018-05-10</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/01/09/2017-self-review/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/thumbnail/apple-pen.jpg)" alt="2017 self review" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/经历/">经历</a></p>
+                            <p class="item-title"><a href="/2018/01/09/2017-self-review/" class="title">2017 self review</a></p>
+                            <p class="item-date"><time datetime="2018-01-09T06:23:24.000Z" itemprop="datePublished">2018-01-09</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/04/04/NPM使用技巧/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/thumbnail/npm.jpg)" alt="NPM使用技巧" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/npm/">npm</a></p>
+                            <p class="item-title"><a href="/2017/04/04/NPM使用技巧/" class="title">NPM使用技巧</a></p>
+                            <p class="item-date"><time datetime="2017-04-04T13:53:46.000Z" itemprop="datePublished">2017-04-04</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/01/04/learn-from-refactor/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/thumbnail/keyboard.jpg)" alt="重构老项目所悟" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/术/">术</a></p>
+                            <p class="item-title"><a href="/2017/01/04/learn-from-refactor/" class="title">重构老项目所悟</a></p>
+                            <p class="item-date"><time datetime="2017-01-04T13:39:54.000Z" itemprop="datePublished">2017-01-04</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TDD/">TDD</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/angular2/">angular2</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/npm/">npm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/交流分享/">交流分享</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/术/">术</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/经历/">经历</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/NGINX/">NGINX</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TWI/">TWI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThoughtWorks/">ThoughtWorks</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ignore/">ignore</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/">npm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/picbling/">picbling</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/refactor/">refactor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/">shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/typescript/">typescript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人学习翻译/">个人学习翻译</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代理模式/">代理模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/单例模式/">单例模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/原型/">原型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习/">学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/对象/">对象</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工作/">工作</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工厂模式/">工厂模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/志愿者/">志愿者</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总结/">总结</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/成长/">成长</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文件/">文件</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/方法记录/">方法记录</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/独立/">独立</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/重构/">重构</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/NGINX/" style="font-size: 10px;">NGINX</a> <a href="/tags/TWI/" style="font-size: 10px;">TWI</a> <a href="/tags/ThoughtWorks/" style="font-size: 10px;">ThoughtWorks</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/ignore/" style="font-size: 10px;">ignore</a> <a href="/tags/java/" style="font-size: 14px;">java</a> <a href="/tags/javascript/" style="font-size: 16px;">javascript</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/nodejs/" style="font-size: 12px;">nodejs</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/picbling/" style="font-size: 10px;">picbling</a> <a href="/tags/refactor/" style="font-size: 10px;">refactor</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/typescript/" style="font-size: 10px;">typescript</a> <a href="/tags/个人学习翻译/" style="font-size: 12px;">个人学习翻译</a> <a href="/tags/代理模式/" style="font-size: 10px;">代理模式</a> <a href="/tags/单例模式/" style="font-size: 10px;">单例模式</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/学习/" style="font-size: 10px;">学习</a> <a href="/tags/对象/" style="font-size: 10px;">对象</a> <a href="/tags/工作/" style="font-size: 12px;">工作</a> <a href="/tags/工厂模式/" style="font-size: 10px;">工厂模式</a> <a href="/tags/志愿者/" style="font-size: 10px;">志愿者</a> <a href="/tags/总结/" style="font-size: 16px;">总结</a> <a href="/tags/成长/" style="font-size: 20px;">成长</a> <a href="/tags/文件/" style="font-size: 12px;">文件</a> <a href="/tags/方法记录/" style="font-size: 18px;">方法记录</a> <a href="/tags/独立/" style="font-size: 12px;">独立</a> <a href="/tags/设计模式/" style="font-size: 14px;">设计模式</a> <a href="/tags/重构/" style="font-size: 10px;">重构</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fas fa-angle-up"></div>
+</aside>
+
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2018 wfsovereign<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_config = function () {
+        
+            this.page.url = 'http://wfsovereign.github.io/2017/01/04/learn-from-refactor/';
+        
+        this.page.identifier = 'learn-from-refactor';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'wfsovereign-blog' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

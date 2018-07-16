@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    
+    <title>我是Nodejs-Everywhere新闻稿志愿者 | f.君</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Node.js Foundation在全球各地聚集 Node.js 开发者，举办了一系列的会议。每个会议都各具特色。会议时长、合作伙伴都取决于当地的 Node.js社区或开发者，可以说是为当地社区量身定制的。这次node基金会来到了北京，征集了大批讲师提交的主题演讲，最后筛选了一些众多开发者关心的话题，于北京时间5.21这个特别的日子在微软大厦分享，下面是此次大会的主要内容。">
+<meta name="keywords" content="成长,志愿者">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我是Nodejs-Everywhere新闻稿志愿者">
+<meta property="og:url" content="http://wfsovereign.github.io/2016/05/24/我是nodejs-everywhere新闻稿志愿者/index.html">
+<meta property="og:site_name" content="f.君">
+<meta property="og:description" content="Node.js Foundation在全球各地聚集 Node.js 开发者，举办了一系列的会议。每个会议都各具特色。会议时长、合作伙伴都取决于当地的 Node.js社区或开发者，可以说是为当地社区量身定制的。这次node基金会来到了北京，征集了大批讲师提交的主题演讲，最后筛选了一些众多开发者关心的话题，于北京时间5.21这个特别的日子在微软大厦分享，下面是此次大会的主要内容。">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://wfsovereign.github.io/thumbnail/nodejs-volunteer.jpg">
+<meta property="og:updated_time" content="2018-06-27T14:17:42.405Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="我是Nodejs-Everywhere新闻稿志愿者">
+<meta name="twitter:description" content="Node.js Foundation在全球各地聚集 Node.js 开发者，举办了一系列的会议。每个会议都各具特色。会议时长、合作伙伴都取决于当地的 Node.js社区或开发者，可以说是为当地社区量身定制的。这次node基金会来到了北京，征集了大批讲师提交的主题演讲，最后筛选了一些众多开发者关心的话题，于北京时间5.21这个特别的日子在微软大厦分享，下面是此次大会的主要内容。">
+<meta name="twitter:image" content="http://wfsovereign.github.io/thumbnail/nodejs-volunteer.jpg">
+    
+
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome5/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/libs/font-awesome5/css/fa-brands.min.css">
+    <link rel="stylesheet" href="/libs/font-awesome5/css/fa-solid.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-82443456-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">f.君</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">Home</a>
+                
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+                    <a class="main-nav-link" href="/categories">Categories</a>
+                
+                    <a class="main-nav-link" href="/tags">Tags</a>
+                
+                    <a class="main-nav-link" href="/about">About</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.jpg" />
+                            <i class="fas fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fas fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">Categories</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">Tags</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">About</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile" class="profile-fixed">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.jpg" />
+            <h2 id="name">wfsovereign</h2>
+            <h3 id="title">Developer &amp; Designer</h3>
+            <span id="location"><i class="fas fa-map-marker-alt" style="padding-right: 5px"></i>Chengdu, China</span>
+            <a id="follow" target="_blank" href="https://github.com/wfsovereign">FOLLOW</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                27
+                <span>posts</span>
+            </div>
+            <div class="article-info-block">
+                34
+                <span>tags</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://github.com/wfsovereign" target="_blank" title="github" class=tooltip>
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-我是nodejs-everywhere新闻稿志愿者" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            
+	
+		<img src="/thumbnail/nodejs-volunteer.jpg" class="article-banner" />
+	
+
+
+
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            我是Nodejs-Everywhere新闻稿志愿者
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fas fa-calendar-alt"></i>
+        <a href="/2016/05/24/我是nodejs-everywhere新闻稿志愿者/">
+            <time datetime="2016-05-24T13:26:04.000Z" itemprop="datePublished">2016-05-24</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fas fa-folder"></i>
+        <a class="article-category-link" href="/categories/经历/">经历</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/志愿者/">志愿者</a>, <a class="tag-link" href="/tags/成长/">成长</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>Node.js Foundation在全球各地聚集 Node.js 开发者，举办了一系列的会议。每个会议都各具特色。会议时长、合作伙伴都取决于当地的 Node.js社区或开发者，可以说是为当地社区量身定制的。这次node基金会来到了北京，征集了大批讲师提交的主题演讲，最后筛选了一些众多开发者关心的话题，于北京时间5.21这个特别的日子在微软大厦分享，下面是此次大会的主要内容。</p>
+<a id="more"></a>
+<h3 id="微软爱开源"><a href="#微软爱开源" class="headerlink" title="微软爱开源"></a>微软爱开源</h3><p>微软开放技术中心董事总经理云浪生先生，他全权负责中国地区的团队组建，推动公司对开源工程、标准及社区参与的计划与项目，以推进整个地区的互操作性、开放标准及开源软件开发项目。在微软的一次人员变革之后，微软对开源越来越关注，微软对开源事业的贡献开源追溯到2004年的wix。2011年介入nodejs，到目前，可以说已经是全方位的支持nodejs，很多员工都是nodejs的核心贡献者，与nodejs基金会也有相关合作。nodejs开发工具VisualStudio（VS），相信很多开发者都知道这款IDE，与atom、sublime、webstorm相比我觉得这款IDE调试node是目前来说最方便的。</p>
+<h3 id="使用-Node-构建桌面应用"><a href="#使用-Node-构建桌面应用" class="headerlink" title="使用 Node 构建桌面应用"></a>使用 Node 构建桌面应用</h3><p>张晨，白鹭时代研发经理。 目前在白鹭时代负责Egret Wing的研发,Egret Wing 是一款HTML5游戏开发IDE。 他给我们分享了electron、NW.js，比较了他们的不同及各自使用场景。直观一点的不同就是他们的入口文件，electron是js文件，NW则是HTML文件。electron是和v8 context运行在主进程中，每一个窗口都会新开一个进程，每一个页面都有自己的环境，而NW则会在多个窗口中共享node环境，意味着你可以共享变量，但是共享变量又会导致其他的问题。使用node来开发桌面应用的优势，首先是跨平台，可以运行在IOS、Android、web、Windows等，其次开发效率高，快速的迭代是一个产品致胜的关键，nodejs社区活跃，开源库非常丰富，这是开发者的一大定心丸，此外，我们还能使用canvas等技术来实现动态交互效果，利用WebRTC + MediaStream实现即时通讯，WebAudio来处理音频，这些都是很强大的工具。不过node开发的桌面应用也有一定的问题，如UI阻塞、安全限制、代码保护等问题，当然，对于这些问题也都一一给了我们解答。</p>
+<h3 id="Build-A-Secure-And-Scalable-Single-Sign-On-Gateway"><a href="#Build-A-Secure-And-Scalable-Single-Sign-On-Gateway" class="headerlink" title="Build A Secure And Scalable Single Sign-On Gateway"></a>Build A Secure And Scalable Single Sign-On Gateway</h3><p>李晓东，就职于Wiredcraft，JavaScript中国开发者大会组织者。分享了构建一个安全、可扩展的getaway。现在微服务兴起之后，很多大型系统都在尝试微型化，这时我们就需要gateway这样的一个中间层，也就是在client与service之间的一个中间件，可以从多方面来保护我们的microservice。安全方面，我们可以使用HTTPS来加强请求，使用Helmet模块来保护请求头，设置请求白名单以及响应黑名单等方式来提高我们的安全级别。Session，我们可以设置过期时间，只在HTTPS请求里才下发cookie，可对用户IP、id两方面来进行限制访问。可扩展，我们不对数据流做任何修改，只更新header，所有配置均通过环境变量，且这些变量都会有默认值，可通过配置一个复杂的代理规则文件来代理我们的getaway。</p>
+<h3 id="Details-覆盖移动端的Node-js全栈开发方案"><a href="#Details-覆盖移动端的Node-js全栈开发方案" class="headerlink" title="Details 覆盖移动端的Node.js全栈开发方案"></a>Details 覆盖移动端的Node.js全栈开发方案</h3><p>邹达，现任移动应用云服务提供商APICloud联合创始人兼CTO，专注于浏览器及相关中间件技术。给我们分享了使用nodejs进行全栈开发方案。一个人使用全栈方案可以完成整个产品开发（app+service+db）一门编程语言JavaScript操作一类数据模型调用一套API（ui, device, fs, network, service, mam, opensdk）。分析了云端一体的全栈开发方案痛点，第一，移动端跨平台引擎的运行能力、渲染性能和扩展机制；第二，移动端和服务端数据模型的映射与连接；第三，服务端不同数据源的模型化和API生成；第四，开放平台服务的集成和模块化。然后依次就这几个问题分享了他的解决方案。移动端平台引擎架构，APP-API-（Engine，Module）-OS；服务端数据源的集成和模型化，RESTFUL API- API Gateway-（Model Layer，Data Connector，Explorer）-Data Source，通过细分的这些层级，我们就能构建一个健壮的全栈系统。</p>
+<h3 id="Nodejs-Everywhere"><a href="#Nodejs-Everywhere" class="headerlink" title="Nodejs Everywhere"></a>Nodejs Everywhere</h3><p>Node基金会社区经理Mikeal Rogers为我们带来了响应主题的分享，nodejs无处不在。nodejs每年的增长达到了100%，是世界上增长最快开源平台，每一天新增的npm package达到了400个，照此趋势，明年nodejs用户应该能达到800w，过两年应该能达到最大的社区。然后分析介绍了web端、移动端、桌面端、云端以及在智能硬件方面nodejs担任的重要角色与其无处不在的身影，展示了nodejs应用场景的广阔空间。值得一提的是，Google Cloud加入了Node基金会，这将影响更多的企业加入基金会并巩固Node.js在通用开发环境中的领先地位。nodejs诞生的目的是让编程民主化和让越来越多的人有开发能力，目前nodejs已经开启了全新一代的编程世界，我们相信nodejs能做的更好，”Nodejs Everywhere!”</p>
+<h3 id="API-PUBLISHING-WITH-NODE-JS"><a href="#API-PUBLISHING-WITH-NODE-JS" class="headerlink" title="API PUBLISHING WITH NODE.JS"></a>API PUBLISHING WITH NODE.JS</h3><p>罗诗亚是Autodesk开发者关系组的developer advocate，负责Autodesk云服务第三方API的发布，见证了从刚开始提供一套云服务API到现在十几款API的发展。她给我们分享了如何nodejs来发布API。传统的API就是应用内部提供给他其他服务的各种接口，现在广义上的API指的web开发中API，REST API是最常用的，它基于http协议。很多开发者应该都有这样的痛苦，我们在用到一个非常棒的技术的时候，然而他的文档却惨不忍睹，以至于我们可能换另一个实现不那么好但是文档漂亮的服务。这件事本身到目前为止还没有一个正确的定义，因此罗诗亚他们团队花了很多时间去思考一个好的开发者体验应该是什么样子的。在一个很大体量的公司里，存在使用各种不同语言、开发工具的团队，最后想要在有限的时间内输出同样风格的文档，难度太大。她们最后的解决方案是用nodejs来写一个通俗易懂的demo，用这个demo来让各个团队花个几个小时快速学习上手，然后让这些经验丰富的程序员把这个demo的思想用他们自己语言来实现。这种由一个简单的点扩展到各个复杂的面的方法，我觉得是我们应该学习吸收的。</p>
+<h3 id="End-to-end-Node-js-app-development-in-the-cloud-Azure-use-cases"><a href="#End-to-end-Node-js-app-development-in-the-cloud-Azure-use-cases" class="headerlink" title="End to end Node.js app development in the cloud Azure use cases"></a>End to end Node.js app development in the cloud Azure use cases</h3><p>Jose Miguel Parrella，就职于微软。Jose和开源软件打交道已经十五年了，最近几年尤其关注NodeJS、DCOS，Docker和树莓派等物联网开源硬件。Jose今天分享了在Azure上端到端nodejs应用开发。他先介绍了一个成功的客户案例-Murally，Murally是一个灵活的高效率的任务白板。Murally近两年客户激增，Murally也使用MEAN架构，Murally用户的日均增长量达到了1000。Azure可以帮助Murally瞬间调整计算节点，Azure有对mongodb做了高级支持，可以对存储节点搭建集群模式，方便扩容和HADR。接着，Jose介绍了一个使用一个用嵌入式设备监控美式足球比赛现场用户呼喊的强度的例子，这个事情最终帮助了一个预测地震的项目。最后，Jose介绍了Azure上，部署一个服务，这个服务提供一个Portal，从Portal中可以看NodeJS Live Beijing会场一个树莓派设备传送的数据，比如温度、湿度，而且是实时的，还可以在Portal上添加观察者，将消息推送到其他绑定服务中。从这个案例中，使我们认识到Azure具有强大的云计算的实力。</p>
+<h3 id="Are-Your-V8-GC-Logs-Speaking-to-You"><a href="#Are-Your-V8-GC-Logs-Speaking-to-You" class="headerlink" title="Are Your V8 GC Logs Speaking to You?"></a>Are Your V8 GC Logs Speaking to You?</h3><p>张秋怡是alinode的实习生，目前致力于V8垃圾回收日志、CPU Profile与堆快照的分析与可视化。她给我们分享了通过V8垃圾回收日志我们能获取的信息。在V8中，主要将内存分为存活较短时间的对象的新生代和存活时间较长或常驻内存的老生代，提到了在V8中回收的算法等。nodejs对垃圾回收没有做什么特殊处理，基本沿用V8的回收机制，那么通过日志我们能获取哪些有用信息呢？最重要的就是能够帮我们快速定位内存泄漏，我们可以通过日志来生成过程图，帮助我们定位到具体从哪里开始调试。最后通过一个内存泄漏的例子向大家展示了通过alinode的工具如何定位如何分析如何解决，这个分析与解决的过程最让人受益，所以没来现场的小伙伴找视频看看吧~</p>
+<h3 id="nodejs-全栈工程师之路"><a href="#nodejs-全栈工程师之路" class="headerlink" title="nodejs 全栈工程师之路"></a>nodejs 全栈工程师之路</h3><p>桑世龙（网名i5ting），空弦科技CTO，StuQ明星讲师，开源项目Moajs作者。展示了目前全栈技术发展与个人发展的速度曲线图，在这个技术爆炸的时代，技术发展是明显快于个人发展的，所以我们选择nodejs这条全栈的道路，是一个最能达到的方向从各个方面分析讲解了node目前的优劣，以其公司实际的开发经验证明了纯node技术栈是能够支撑起一个SaaS服务的。</p>
+<p>桑世龙对NodeJS全栈的分享内容十分广泛，不仅包括对技术趋势的分析，还包括对工具的比较，对NodeJS初学者给予了极大的勉励，桑世龙对技术CNode社区做了极大贡献，闲暇时间维护cnodejs.org，而且还维护了”NodeJS全栈”这个微信公众号，他还会将好的实践体验总结成最佳实践，通过开源项目进行分享。</p>
+<p>最后，由Node.js基金会经理mikeal和Node.js基金会教育经理与活动现场人数170+人和线上100+人进行互动答疑，小伙伴们一个接一个的问题他俩也能应付自如，足见内功深厚啊。值得一提的是，这次大会不仅线上有直播互动，在微博、微信上也进行着火热的互动，足见本次活动方对不方便到场的小伙伴们的关切之心啊。</p>
+<h3 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h3><p>以上就是此次大会的主要内容了，整天的分享安排的环环相扣，精彩纷呈，真是干货十足，渴得我几乎一口水都没来得及喝。大会之后，承办方微软见大伙依旧热情满满、意犹未尽，又带着留下的大伙去附近的创启咖啡厅继续交流，或三五人或七八人一桌，咖啡厅用香槟、红酒与牛排热情招待了大伙，很多朋友也在推杯换盏之间找到了密友，真是愉快的一天~</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://wfsovereign.github.io/2016/05/24/我是nodejs-everywhere新闻稿志愿者/" data-id="cjje2u1s5004dxrcti1r1axp8" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://wfsovereign.github.io/2016/05/24/我是nodejs-everywhere新闻稿志愿者/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://wfsovereign.github.io/2016/05/24/我是nodejs-everywhere新闻稿志愿者/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2016/06/26/angular2开发笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    Angular2开发笔记
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2016/05/07/好喜欢的大家/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">好喜欢的大家</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+        <section id="comments">
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+</section>
+    
+
+</section>
+            
+                
+<aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">recent</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/07/09/国家命运与个人命运/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/thumbnail/people-lixiao.jpeg)" alt="国家命运与个人命运" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/术/">术</a></p>
+                            <p class="item-title"><a href="/2018/07/09/国家命运与个人命运/" class="title">国家命运与个人命运</a></p>
+                            <p class="item-date"><time datetime="2018-07-09T08:56:33.000Z" itemprop="datePublished">2018-07-09</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/10/NGINX按天生成日志文件的简易配置/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/thumbnail/nginx.png)" alt="NGINX按天生成日志文件的简易配置" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/经历/">经历</a></p>
+                            <p class="item-title"><a href="/2018/05/10/NGINX按天生成日志文件的简易配置/" class="title">NGINX按天生成日志文件的简易配置</a></p>
+                            <p class="item-date"><time datetime="2018-05-10T09:45:27.000Z" itemprop="datePublished">2018-05-10</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/01/09/2017-self-review/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/thumbnail/apple-pen.jpg)" alt="2017 self review" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/经历/">经历</a></p>
+                            <p class="item-title"><a href="/2018/01/09/2017-self-review/" class="title">2017 self review</a></p>
+                            <p class="item-date"><time datetime="2018-01-09T06:23:24.000Z" itemprop="datePublished">2018-01-09</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/04/04/NPM使用技巧/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/thumbnail/npm.jpg)" alt="NPM使用技巧" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/npm/">npm</a></p>
+                            <p class="item-title"><a href="/2017/04/04/NPM使用技巧/" class="title">NPM使用技巧</a></p>
+                            <p class="item-date"><time datetime="2017-04-04T13:53:46.000Z" itemprop="datePublished">2017-04-04</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/01/04/learn-from-refactor/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/thumbnail/keyboard.jpg)" alt="重构老项目所悟" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/术/">术</a></p>
+                            <p class="item-title"><a href="/2017/01/04/learn-from-refactor/" class="title">重构老项目所悟</a></p>
+                            <p class="item-date"><time datetime="2017-01-04T13:39:54.000Z" itemprop="datePublished">2017-01-04</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TDD/">TDD</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/angular2/">angular2</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/npm/">npm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/交流分享/">交流分享</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/术/">术</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/经历/">经历</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/NGINX/">NGINX</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TWI/">TWI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThoughtWorks/">ThoughtWorks</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ignore/">ignore</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/">npm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/picbling/">picbling</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/refactor/">refactor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/">shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/typescript/">typescript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人学习翻译/">个人学习翻译</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代理模式/">代理模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/单例模式/">单例模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/原型/">原型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习/">学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/对象/">对象</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工作/">工作</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工厂模式/">工厂模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/志愿者/">志愿者</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总结/">总结</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/成长/">成长</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文件/">文件</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/方法记录/">方法记录</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/独立/">独立</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/重构/">重构</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/NGINX/" style="font-size: 10px;">NGINX</a> <a href="/tags/TWI/" style="font-size: 10px;">TWI</a> <a href="/tags/ThoughtWorks/" style="font-size: 10px;">ThoughtWorks</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/ignore/" style="font-size: 10px;">ignore</a> <a href="/tags/java/" style="font-size: 14px;">java</a> <a href="/tags/javascript/" style="font-size: 16px;">javascript</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/nodejs/" style="font-size: 12px;">nodejs</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/picbling/" style="font-size: 10px;">picbling</a> <a href="/tags/refactor/" style="font-size: 10px;">refactor</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/typescript/" style="font-size: 10px;">typescript</a> <a href="/tags/个人学习翻译/" style="font-size: 12px;">个人学习翻译</a> <a href="/tags/代理模式/" style="font-size: 10px;">代理模式</a> <a href="/tags/单例模式/" style="font-size: 10px;">单例模式</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/学习/" style="font-size: 10px;">学习</a> <a href="/tags/对象/" style="font-size: 10px;">对象</a> <a href="/tags/工作/" style="font-size: 12px;">工作</a> <a href="/tags/工厂模式/" style="font-size: 10px;">工厂模式</a> <a href="/tags/志愿者/" style="font-size: 10px;">志愿者</a> <a href="/tags/总结/" style="font-size: 16px;">总结</a> <a href="/tags/成长/" style="font-size: 20px;">成长</a> <a href="/tags/文件/" style="font-size: 12px;">文件</a> <a href="/tags/方法记录/" style="font-size: 18px;">方法记录</a> <a href="/tags/独立/" style="font-size: 12px;">独立</a> <a href="/tags/设计模式/" style="font-size: 14px;">设计模式</a> <a href="/tags/重构/" style="font-size: 10px;">重构</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fas fa-angle-up"></div>
+</aside>
+
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2018 wfsovereign<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_config = function () {
+        
+            this.page.url = 'http://wfsovereign.github.io/2016/05/24/我是nodejs-everywhere新闻稿志愿者/';
+        
+        this.page.identifier = '我是nodejs-everywhere新闻稿志愿者';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'wfsovereign-blog' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Javascript实用方法二 | f.君</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Objectkeysobject的keys方法能够获取一个给定对象的所有键（key/属性名）并以数组的形式返回。这个方法可以用于键的筛选、匹配等。 123456789var basket = &amp;#123;    strawberry: 12,    banana: 20,    apple: 30,    juice: 20&amp;#125;;console.log(Object.keys(basket">
+<meta name="keywords" content="方法记录,成长,javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript实用方法二">
+<meta property="og:url" content="http://wfsovereign.github.io/2015/12/13/javascript实用方法二/index.html">
+<meta property="og:site_name" content="f.君">
+<meta property="og:description" content="Objectkeysobject的keys方法能够获取一个给定对象的所有键（key/属性名）并以数组的形式返回。这个方法可以用于键的筛选、匹配等。 123456789var basket = &amp;#123;    strawberry: 12,    banana: 20,    apple: 30,    juice: 20&amp;#125;;console.log(Object.keys(basket">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-06-27T14:17:42.403Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Javascript实用方法二">
+<meta name="twitter:description" content="Objectkeysobject的keys方法能够获取一个给定对象的所有键（key/属性名）并以数组的形式返回。这个方法可以用于键的筛选、匹配等。 123456789var basket = &amp;#123;    strawberry: 12,    banana: 20,    apple: 30,    juice: 20&amp;#125;;console.log(Object.keys(basket">
+    
+
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome5/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/libs/font-awesome5/css/fa-brands.min.css">
+    <link rel="stylesheet" href="/libs/font-awesome5/css/fa-solid.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-82443456-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">f.君</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">Home</a>
+                
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+                    <a class="main-nav-link" href="/categories">Categories</a>
+                
+                    <a class="main-nav-link" href="/tags">Tags</a>
+                
+                    <a class="main-nav-link" href="/about">About</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.jpg" />
+                            <i class="fas fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fas fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">Categories</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">Tags</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">About</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile" class="profile-fixed">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.jpg" />
+            <h2 id="name">wfsovereign</h2>
+            <h3 id="title">Developer &amp; Designer</h3>
+            <span id="location"><i class="fas fa-map-marker-alt" style="padding-right: 5px"></i>Chengdu, China</span>
+            <a id="follow" target="_blank" href="https://github.com/wfsovereign">FOLLOW</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                27
+                <span>posts</span>
+            </div>
+            <div class="article-info-block">
+                34
+                <span>tags</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://github.com/wfsovereign" target="_blank" title="github" class=tooltip>
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-javascript实用方法二" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Javascript实用方法二
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fas fa-calendar-alt"></i>
+        <a href="/2015/12/13/javascript实用方法二/">
+            <time datetime="2015-12-13T03:54:07.000Z" itemprop="datePublished">2015-12-13</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fas fa-folder"></i>
+        <a class="article-category-link" href="/categories/javascript/">javascript</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/javascript/">javascript</a>, <a class="tag-link" href="/tags/成长/">成长</a>, <a class="tag-link" href="/tags/方法记录/">方法记录</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h3 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h3><h4 id="keys"><a href="#keys" class="headerlink" title="keys"></a>keys</h4><p>object的keys方法能够获取一个给定对象的所有键（key/属性名）并以数组的形式返回。这个方法可以用于键的筛选、匹配等。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> basket = &#123;</span><br><span class="line">    strawberry: <span class="number">12</span>,</span><br><span class="line">    banana: <span class="number">20</span>,</span><br><span class="line">    apple: <span class="number">30</span>,</span><br><span class="line">    juice: <span class="number">20</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.keys(basket)); </span><br><span class="line"><span class="comment">//[ 'strawberry', 'banana', 'apple', 'juice' ]</span></span><br></pre></td></tr></table></figure>
+<h4 id="create"><a href="#create" class="headerlink" title="create"></a>create</h4><p>create方法用于创建一个新的对象，可选参数(proto, [ propertiesObject ])，第一个为原型，比如Array.prototype之类的，第二个为需要给新建对象的一些新属性之类的,这个参数对象的属性名将是新建对象的属性，值则是属性描述符（value、writable、configurable等）。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = <span class="built_in">Object</span>.create(&#123;&#125;, &#123;<span class="attr">p</span>: &#123;<span class="attr">value</span>: <span class="number">42</span>&#125;&#125;);</span><br><span class="line"><span class="keyword">var</span> O = <span class="built_in">Object</span>.create(&#123;&#125;, &#123;<span class="attr">p</span>: &#123;<span class="attr">value</span>: <span class="number">66</span>, <span class="attr">writable</span>: <span class="literal">true</span>, <span class="attr">enumerable</span>: <span class="literal">true</span>&#125;&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(o.p); <span class="comment">//42</span></span><br><span class="line"><span class="built_in">console</span>.log(O.p); <span class="comment">//66</span></span><br><span class="line">o.p = <span class="number">20</span>;</span><br><span class="line">O.p = <span class="number">80</span>;</span><br><span class="line"><span class="built_in">console</span>.log(o.p); <span class="comment">//42</span></span><br><span class="line"><span class="built_in">console</span>.log(O.p); <span class="comment">//80</span></span><br></pre></td></tr></table></figure>
+<p>属性描述符中writable默认为false，因此o.p即便在后来重新赋值也是不能改变其值的，而O.p则能够在后来改变值，此外，create方法proto必须传入相应参数，否则会报错TypeError，当然以上代码在严格模式下也会报错，因为o.p被重写- -</p>
+<h4 id="assign"><a href="#assign" class="headerlink" title="assign"></a>assign</h4><p>assign方法，es6的新特性，支持传参(target, …sources)，用于将任意多个源对象的键值对添加的目标对象，类似于lodash的assign和underscore的extendOwn方法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> boy = &#123;<span class="attr">handsome</span>: <span class="literal">true</span>, <span class="attr">rich</span>: <span class="literal">true</span>&#125;, girl = &#123;<span class="attr">cute</span>: <span class="literal">true</span>, <span class="attr">hair</span>: <span class="string">'long'</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> couples = <span class="built_in">Object</span>.assign(&#123;&#125;, boy, girl);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(couples); <span class="comment">//&#123; handsome: true, rich: true, cute: true, hair: 'long' &#125;</span></span><br></pre></td></tr></table></figure>
+<p>assign方法常用于框架层面的数据处理，比如你定义了一个client用于发送HTTP请求，使用的时候获取接受到的参数之外自己可能得加上什么默认的属性。</p>
+<h3 id="Number"><a href="#Number" class="headerlink" title="Number"></a>Number</h3><h4 id="isNaN"><a href="#isNaN" class="headerlink" title="isNaN"></a>isNaN</h4><p>Number的isNaN方法用来判断传入值是否是NaN的值，与全局的isNaN方法不同的是它不会强制将传入参数转化为数字类型，只有在参数是真正的数字类型，且值为 NaN 的时候才会返回 true。不过就自己而言全局的isNaN用的多一点，就用来判断字符串是不是只包含数字，</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="string">'123f'</span>)); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="string">'123'</span>)); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<p>此外，isFinite(value)方法用于判断传入参数是否是有穷数，isInteger(value)方法用于判断传入参数是否是整数。</p>
+<h4 id="toFixed"><a href="#toFixed" class="headerlink" title="toFixed"></a>toFixed</h4><p>toFixed方法用来将数字转化为特定的字符串，支持传入参数（digits），0 &lt; digits &lt;= 20，在转换的时候会自动进行四舍五入以及0补充。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> cool = <span class="number">666.666</span>;</span><br><span class="line"><span class="built_in">console</span>.log(cool.toFixed(<span class="number">1</span>)); <span class="comment">//666.7</span></span><br><span class="line"><span class="built_in">console</span>.log(cool.toFixed(<span class="number">6</span>)); <span class="comment">//666.666000</span></span><br></pre></td></tr></table></figure>
+<p>这段时间发生了很多事情，从待了116天的杭州来到北京，开始一段新的工作与生活。不舍、惆怅、激动、兴奋等情绪交织缠绵…七匹狼，认识了其余六狼，很珍惜这段大家一起努力一起嗨皮的日子，尤记得夜爬宝石山，俯瞰西湖，English poor，哈哈哈…</p>
+<p>向着梦想，go！baby！</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://wfsovereign.github.io/2015/12/13/javascript实用方法二/" data-id="cjje2u1q8000hxrct0bga6o19" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://wfsovereign.github.io/2015/12/13/javascript实用方法二/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://wfsovereign.github.io/2015/12/13/javascript实用方法二/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2015/12/21/记录我这一年的技术之路-纯干货/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    记录我这一年的技术之路(nodejs纯干货)
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2015/11/15/javascript实用方法/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">Javascript实用方法</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+        <section id="comments">
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+</section>
+    
+
+</section>
+            
+                
+<aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">recent</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/07/09/国家命运与个人命运/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/thumbnail/people-lixiao.jpeg)" alt="国家命运与个人命运" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/术/">术</a></p>
+                            <p class="item-title"><a href="/2018/07/09/国家命运与个人命运/" class="title">国家命运与个人命运</a></p>
+                            <p class="item-date"><time datetime="2018-07-09T08:56:33.000Z" itemprop="datePublished">2018-07-09</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/10/NGINX按天生成日志文件的简易配置/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/thumbnail/nginx.png)" alt="NGINX按天生成日志文件的简易配置" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/经历/">经历</a></p>
+                            <p class="item-title"><a href="/2018/05/10/NGINX按天生成日志文件的简易配置/" class="title">NGINX按天生成日志文件的简易配置</a></p>
+                            <p class="item-date"><time datetime="2018-05-10T09:45:27.000Z" itemprop="datePublished">2018-05-10</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/01/09/2017-self-review/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/thumbnail/apple-pen.jpg)" alt="2017 self review" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/经历/">经历</a></p>
+                            <p class="item-title"><a href="/2018/01/09/2017-self-review/" class="title">2017 self review</a></p>
+                            <p class="item-date"><time datetime="2018-01-09T06:23:24.000Z" itemprop="datePublished">2018-01-09</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/04/04/NPM使用技巧/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/thumbnail/npm.jpg)" alt="NPM使用技巧" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/npm/">npm</a></p>
+                            <p class="item-title"><a href="/2017/04/04/NPM使用技巧/" class="title">NPM使用技巧</a></p>
+                            <p class="item-date"><time datetime="2017-04-04T13:53:46.000Z" itemprop="datePublished">2017-04-04</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/01/04/learn-from-refactor/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/thumbnail/keyboard.jpg)" alt="重构老项目所悟" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/术/">术</a></p>
+                            <p class="item-title"><a href="/2017/01/04/learn-from-refactor/" class="title">重构老项目所悟</a></p>
+                            <p class="item-date"><time datetime="2017-01-04T13:39:54.000Z" itemprop="datePublished">2017-01-04</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TDD/">TDD</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/angular2/">angular2</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/npm/">npm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/交流分享/">交流分享</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/术/">术</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/经历/">经历</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/NGINX/">NGINX</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TWI/">TWI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThoughtWorks/">ThoughtWorks</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ignore/">ignore</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/">npm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/picbling/">picbling</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/refactor/">refactor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/">shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/typescript/">typescript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人学习翻译/">个人学习翻译</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代理模式/">代理模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/单例模式/">单例模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/原型/">原型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习/">学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/对象/">对象</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工作/">工作</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工厂模式/">工厂模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/志愿者/">志愿者</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总结/">总结</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/成长/">成长</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文件/">文件</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/方法记录/">方法记录</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/独立/">独立</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/重构/">重构</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/NGINX/" style="font-size: 10px;">NGINX</a> <a href="/tags/TWI/" style="font-size: 10px;">TWI</a> <a href="/tags/ThoughtWorks/" style="font-size: 10px;">ThoughtWorks</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/ignore/" style="font-size: 10px;">ignore</a> <a href="/tags/java/" style="font-size: 14px;">java</a> <a href="/tags/javascript/" style="font-size: 16px;">javascript</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/nodejs/" style="font-size: 12px;">nodejs</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/picbling/" style="font-size: 10px;">picbling</a> <a href="/tags/refactor/" style="font-size: 10px;">refactor</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/typescript/" style="font-size: 10px;">typescript</a> <a href="/tags/个人学习翻译/" style="font-size: 12px;">个人学习翻译</a> <a href="/tags/代理模式/" style="font-size: 10px;">代理模式</a> <a href="/tags/单例模式/" style="font-size: 10px;">单例模式</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/学习/" style="font-size: 10px;">学习</a> <a href="/tags/对象/" style="font-size: 10px;">对象</a> <a href="/tags/工作/" style="font-size: 12px;">工作</a> <a href="/tags/工厂模式/" style="font-size: 10px;">工厂模式</a> <a href="/tags/志愿者/" style="font-size: 10px;">志愿者</a> <a href="/tags/总结/" style="font-size: 16px;">总结</a> <a href="/tags/成长/" style="font-size: 20px;">成长</a> <a href="/tags/文件/" style="font-size: 12px;">文件</a> <a href="/tags/方法记录/" style="font-size: 18px;">方法记录</a> <a href="/tags/独立/" style="font-size: 12px;">独立</a> <a href="/tags/设计模式/" style="font-size: 14px;">设计模式</a> <a href="/tags/重构/" style="font-size: 10px;">重构</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fas fa-angle-up"></div>
+</aside>
+
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2018 wfsovereign<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_config = function () {
+        
+            this.page.url = 'http://wfsovereign.github.io/2015/12/13/javascript实用方法二/';
+        
+        this.page.identifier = 'javascript实用方法二';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'wfsovereign-blog' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
