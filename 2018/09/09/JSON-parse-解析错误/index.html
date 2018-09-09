@@ -3,18 +3,22 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Archive: 2016/8 | f.君</title>
+    <title>JSON parse 解析错误 | f.君</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="尽其力，致其善，淡成败">
-<meta property="og:type" content="website">
-<meta property="og:title" content="f.君">
-<meta property="og:url" content="http://wfsovereign.github.io/archives/2016/08/index.html">
+    <meta name="description" content="0x01最近在做一个小爬虫，爬去淘宝特定商品数据，页面数据异步加载，还好在返回的数据中看到了配置数据（page_config），那么剩下的问题就是字符串截取、json解析了，问题也就正好出在json解析上。">
+<meta name="keywords" content="方法记录,成长,javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JSON parse 解析错误">
+<meta property="og:url" content="http://wfsovereign.github.io/2018/09/09/JSON-parse-解析错误/index.html">
 <meta property="og:site_name" content="f.君">
-<meta property="og:description" content="尽其力，致其善，淡成败">
+<meta property="og:description" content="0x01最近在做一个小爬虫，爬去淘宝特定商品数据，页面数据异步加载，还好在返回的数据中看到了配置数据（page_config），那么剩下的问题就是字符串截取、json解析了，问题也就正好出在json解析上。">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="http://wfsovereign.github.io/thumbnail/programmer.jpg">
+<meta property="og:updated_time" content="2018-09-09T13:30:31.857Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="f.君">
-<meta name="twitter:description" content="尽其力，致其善，淡成败">
+<meta name="twitter:title" content="JSON parse 解析错误">
+<meta name="twitter:description" content="0x01最近在做一个小爬虫，爬去淘宝特定商品数据，页面数据异步加载，还好在返回的数据中看到了配置数据（page_config），那么剩下的问题就是字符串截取、json解析了，问题也就正好出在json解析上。">
+<meta name="twitter:image" content="http://wfsovereign.github.io/thumbnail/programmer.jpg">
     
 
     
@@ -196,50 +200,203 @@ ga('send', 'pageview');
 </aside>
 
             
-            <section id="main"><div class="timeline timeline-wrap">
-    
-            <div class="timeline-row timeline-row-major">
-                <span class="node"><i class="fas fa-calendar-alt"></i></span>
-                <h1 class="title">2016</h1>
-            </div>
+            <section id="main"><article id="post-JSON-parse-解析错误" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            
+	
+		<img src="/thumbnail/programmer.jpg" class="article-banner" />
+	
+
+
+
+        
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2016/08/13/ThoughtWorks三个月工作记录与总结/">ThoughtWorks三个月工作记录与总结</a>
+        <h1 class="article-title" itemprop="name">
+            JSON parse 解析错误
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fas fa-calendar-alt"></i>
-        <a href="/2016/08/13/ThoughtWorks三个月工作记录与总结/">
-            <time datetime="2016-08-13T09:27:56.000Z" itemprop="datePublished">2016-08-13</time>
+        <a href="/2018/09/09/JSON-parse-解析错误/">
+            <time datetime="2018-09-09T12:41:32.000Z" itemprop="datePublished">2018-09-09</time>
         </a>
     </div>
 
 
-                    
+                        
     <div class="article-category">
     	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/经历/">经历</a>
+        <a class="article-category-link" href="/categories/javascript/">javascript</a>
     </div>
 
-                    
+                        
     <div class="article-tag">
         <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/ThoughtWorks/">ThoughtWorks</a>, <a class="tag-link" href="/tags/工作/">工作</a>, <a class="tag-link" href="/tags/成长/">成长</a>
+        <a class="tag-link" href="/tags/javascript/">javascript</a>, <a class="tag-link" href="/tags/成长/">成长</a>, <a class="tag-link" href="/tags/方法记录/">方法记录</a>
     </div>
 
-                </div>
-            </div>
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h3 id="0x01"><a href="#0x01" class="headerlink" title="0x01"></a>0x01</h3><p>最近在做一个小爬虫，爬去淘宝特定商品数据，页面数据异步加载，还好在返回的数据中看到了配置数据（page_config），那么剩下的问题就是字符串截取、json解析了，问题也就正好出在json解析上。</p>
+<a id="more"></a>
+<h3 id="0x02"><a href="#0x02" class="headerlink" title="0x02"></a>0x02</h3><p>我们先看看返回的数据大概长啥样吧，很长，放一段，</p>
+<blockquote>
+<p>…</p>
+<p>“traceData”:{“filterid”:”filter_ershou”},”isHighlight”:false,”pos”:0,”dom_id”:”filter_ershou”},{“isActive”:false,”value”:”tmall”,”title”:”天猫”,”key”:”filter_tianmao”,”trace”:”filterbox”,”traceData”:{“filterid”:”filter_tianmao”},”isHighlight”:false,”pos”:0,”dom_id”:”filter_tianmao”},{“isActive”:false,”value”:”1”,”title”:”正品保障”,”key”:”user_type”,”trace”:”filterbox”,”traceData”:{“filterid”:”filterProtectionQuality”},”isHighlight”:false,”pos”:0,”dom_id”:”filterProtectionQuality”},{“isActive”:false,”value”:”4806”,”title”:”7+天内退货”,”key”:”auction_tag[]”,”trace”:”filterbox”,</p>
+<p>…</p>
+<p>19900:2000\”,\”ADGTITLE\”:\”\u4EBA\u9645\u4EA4\u5F80\u5FC3\u7406\u5B66\u4E66\u7C4D\u7545\u9500\u4E66\u4E3A\u4EBA\u5904\u4E8B\u6C9F\u901A\u8BFB\u5FC3\u672F\u5FC3\u7406\u5B66\u5165\u95E8\u60C5\u5546\u4E66\u7C4D\u53E3\u624D\u8BAD\u7EC3\u6C9F\u901A\u9752\u6625\u52B1\u5FD7\u8425\u9500\u9500\u552E\u6280\u5DE7\u7C7B\u4E66\u7C4D\u7545\u9500\u4E66\u7BA1\u7406\u8BF4\u8BDD\u6280\u5DE7\u7684\u4E66\”,\”DESC\”:\”\”,\”ISHK\”:\”0\”,\”COUPON_TAG_ID\”:\”47776002 0\”,\”SSPUID\”:\”0\”,\”ISGLOBAL\”:\”0\”,\”RESOURCEID\”:\”547668928452\”,\”SHOPNAME\”:\”\u4E07\u4F17\u5174\u90A6\u56FE\u4E66\u4E13\u8425\u5E97\”</p>
+<p>…</p>
+</blockquote>
+<p>这个json中存在Unicode字符，尝试过直接解析，报错如下：</p>
+<blockquote>
+<p>Uncaught SyntaxError: Unexpected token i in JSON at position 8672</p>
+</blockquote>
+<p>那么我就想是不是Unicode导致不能解析，所以，先就Unicode字符进行解析，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">decode</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">decodeURIComponent</span>(s.replace(<span class="regexp">/\\(u[0-9a-fA-F]&#123;4&#125;)/gm</span>, <span class="string">'%$1'</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果还是报错了，</p>
+<blockquote>
+<p>Uncaught URIError: URI malformed</p>
+</blockquote>
+<p>我们知道，<strong>decodeURIComponent</strong>解析的时候，“<strong>%</strong>”经常就是罪魁祸首，那么尝试将它给干掉呢，反正它对我们想要的结果没什么影响，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">decode</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">decodeURIComponent</span>(s.replace(<span class="regexp">/%/g</span>, <span class="string">''</span>).replace(<span class="regexp">/\\(u[0-9a-fA-F]&#123;4&#125;)/gm</span>, <span class="string">'%$1'</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样我们拿到的结果看起来好像是没什么问题了，那我们直接就<strong>Object.parse</strong>试试，报错如下，</p>
+<blockquote>
+<p>Uncaught SyntaxError: Octal escape sequences are not allowed in template strings.</p>
+</blockquote>
+<p>Oh，字符串中出现了八进制，这个就没有什么解决的思路了 - -| </p>
+<p>我们来小结一下，我们对淘宝返回数据进行截取，拿到我们想要的以String形式的配置数据，直接用<strong>Object.parse</strong>解析，发现不是一个规则的JSON字符串，其中有Unicode字符，所以我们尝试对Unicode字符解码，<strong>decodeURIComponent</strong>解析有报错，尝试将<strong>%</strong>干掉再解码，没有问题，最后再<strong>Object.parse</strong>解析又报了八进制的错… 所以我们这条路很难再进行下去了</p>
+<h3 id="0x03"><a href="#0x03" class="headerlink" title="0x03"></a>0x03</h3><p>到此为止，感觉是要换个方法了…因为我们对数据的安全和性能要求不高，所以这个时候<strong>eval</strong>就派上了用场，直接将我们拿到的json字符串丢给它吧..</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> targetSource = <span class="built_in">eval</span>(<span class="string">"("</span> + ObjString + <span class="string">")"</span>)</span><br></pre></td></tr></table></figure>
+<p>这样真的是方便又无脑呢 ：）</p>
+<h5 id="Reference："><a href="#Reference：" class="headerlink" title="Reference："></a>Reference：</h5><ul>
+<li><a href="http://www.json.org/json-zh.html" target="_blank" rel="noopener">JSON</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval" target="_blank" rel="noopener">eval</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Malformed_URI" target="_blank" rel="noopener">URIError</a></li>
+<li><a href="http://www.ecma-international.org/" target="_blank" rel="noopener">ECMA</a></li>
+</ul>
+
+        
         </div>
-    
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
 </div>
+
+    <a data-url="http://wfsovereign.github.io/2018/09/09/JSON-parse-解析错误/" data-id="cjluuku5r00009xctubkc9qg4" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://wfsovereign.github.io/2018/09/09/JSON-parse-解析错误/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://wfsovereign.github.io/2018/09/09/JSON-parse-解析错误/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2018/07/09/国家命运与个人命运/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">国家命运与个人命运</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+        <section id="comments">
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+</section>
+    
+
 </section>
             
                 
@@ -421,11 +578,13 @@ ga('send', 'pageview');
     <script>
     var disqus_config = function () {
         
-        this.page.identifier = '';
+            this.page.url = 'http://wfsovereign.github.io/2018/09/09/JSON-parse-解析错误/';
+        
+        this.page.identifier = 'JSON-parse-解析错误';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
-        s.src = '//' + 'wfsovereign-blog' + '.disqus.com/count.js';
+        s.src = '//' + 'wfsovereign-blog' + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
