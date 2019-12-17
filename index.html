@@ -168,11 +168,11 @@ ga('send', 'pageview');
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                30
+                31
                 <span>posts</span>
             </div>
             <div class="article-info-block">
-                35
+                37
                 <span>tags</span>
             </div>
         </div>
@@ -197,6 +197,152 @@ ga('send', 'pageview');
 
             
             <section id="main">
+    <article id="post-行走在阳光下的那些不可见字符" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <div class="article-inner">
+        
+            
+	
+		<a href="/2019/12/16/行走在阳光下的那些不可见字符/" itemprop="url">
+            <img src="/thumbnail/zero-width-character.png" class="article-banner">
+        </a>
+	
+
+
+
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2019/12/16/行走在阳光下的那些不可见字符/">行走在阳光下的那些不可见字符</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fas fa-calendar-alt"></i>
+        <a href="/2019/12/16/行走在阳光下的那些不可见字符/">
+            <time datetime="2019-12-16T14:29:48.000Z" itemprop="datePublished">2019-12-16</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fas fa-folder"></i>
+        <a class="article-category-link" href="/categories/探索/">探索</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/javascript/">javascript</a>, <a class="tag-link" href="/tags/unicode/">unicode</a>, <a class="tag-link" href="/tags/工具/">工具</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p><blockquote>
+<p>假设我们已经知道Unicode字符集，如果不清楚也可阅读本文，然后等待下一篇主要介绍Unicode的文章。</p>
+</blockquote>
+</p><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>今天我们主要来聊聊这些行走在阳光下的不可见字符。不可见字符在计算机科学和通信学中被称为控制字符或非打印字符，是字符集中的一个码位（code point），不是一个书面符号，也就是在一般的书面呈现环境中它是不可见字符。<br></p>
+            <p class="article-more-link">
+                <a href="/2019/12/16/行走在阳光下的那些不可见字符/#more">Read More</a>
+            </p>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://wfsovereign.github.io/2019/12/16/行走在阳光下的那些不可见字符/" data-id="ck48jhr0a000091ct8tgcb8wt" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://wfsovereign.github.io/2019/12/16/行走在阳光下的那些不可见字符/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://wfsovereign.github.io/2019/12/16/行走在阳光下的那些不可见字符/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-三个月（敏捷）项目收获" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
         
@@ -262,7 +408,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://wfsovereign.github.io/2019/11/22/三个月（敏捷）项目收获/" data-id="ck39qg4o10013zkctmvrnrh97" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://wfsovereign.github.io/2019/11/22/三个月（敏捷）项目收获/" data-id="ck48jhh52000x82ct7yq98s2f" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -396,7 +542,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://wfsovereign.github.io/2019/11/07/记一次公司编程比赛/" data-id="ck39qg4o6001kzkctitcsb60t" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://wfsovereign.github.io/2019/11/07/记一次公司编程比赛/" data-id="ck48jhh59001j82ctb8d45pkr" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -539,7 +685,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://wfsovereign.github.io/2018/09/09/JSON-parse-解析错误/" data-id="ck39qg4n80004zkctw54jlfc9" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://wfsovereign.github.io/2018/09/09/JSON-parse-解析错误/" data-id="ck48jhh4a000382ctc75ca45l" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -690,7 +836,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://wfsovereign.github.io/2018/07/09/国家命运与个人命运/" data-id="ck39qg4qz005hzkctrx0radnb" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://wfsovereign.github.io/2018/07/09/国家命运与个人命运/" data-id="ck48jhh8a005k82ct9q82udj5" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -834,7 +980,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://wfsovereign.github.io/2018/05/10/NGINX按天生成日志文件的简易配置/" data-id="ck39qg4ng0008zkctv2ro9ccy" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://wfsovereign.github.io/2018/05/10/NGINX按天生成日志文件的简易配置/" data-id="ck48jhh4g000782ctupwhchte" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -979,7 +1125,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://wfsovereign.github.io/2018/01/09/2017-self-review/" data-id="ck39qg4pe004kzkct0zgm7v9j" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://wfsovereign.github.io/2018/01/09/2017-self-review/" data-id="ck48jhh69004o82ct2aclr3gn" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1123,7 +1269,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://wfsovereign.github.io/2017/04/04/NPM使用技巧/" data-id="ck39qg4nh0009zkct468avxhn" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://wfsovereign.github.io/2017/04/04/NPM使用技巧/" data-id="ck48jhh4i000982ct9oyw0h12" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1279,7 +1425,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://wfsovereign.github.io/2017/01/04/learn-from-refactor/" data-id="ck39qg4nu000nzkctq3tsfc00" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://wfsovereign.github.io/2017/01/04/learn-from-refactor/" data-id="ck48jhh4y000p82ctq853w57k" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1424,7 +1570,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://wfsovereign.github.io/2016/12/05/My-TWI/" data-id="ck39qg4pg004nzkctqiw8cnap" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://wfsovereign.github.io/2016/12/05/My-TWI/" data-id="ck48jhh68004n82ct36d9uq95" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1502,152 +1648,8 @@ ga('send', 'pageview');
 
 
 
-    <article id="post-ThoughtWorks三个月工作记录与总结" class="article article-type-post" itemscope="" itemprop="blogPost">
-    <div class="article-inner">
-        
-            
-	
-		<a href="/2016/08/13/ThoughtWorks三个月工作记录与总结/" itemprop="url">
-            <img src="/thumbnail/tw.png" class="article-banner">
-        </a>
-	
-
-
-
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2016/08/13/ThoughtWorks三个月工作记录与总结/">ThoughtWorks三个月工作记录与总结</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fas fa-calendar-alt"></i>
-        <a href="/2016/08/13/ThoughtWorks三个月工作记录与总结/">
-            <time datetime="2016-08-13T09:27:56.000Z" itemprop="datePublished">2016-08-13</time>
-        </a>
-    </div>
-
-
-                        
-    <div class="article-category">
-    	<i class="fas fa-folder"></i>
-        <a class="article-category-link" href="/categories/经历/">经历</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/ThoughtWorks/">ThoughtWorks</a>, <a class="tag-link" href="/tags/工作/">工作</a>, <a class="tag-link" href="/tags/成长/">成长</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            <p></p><p>是的，5.9号入职的我已经在TW待了三个月了，那么，离开拾光小盒子也是三个月了，时间，可真快啊..</p>
-<p>当初，由于内心对未来的迷茫以及内心对技术的渴望，我放弃了很多，选择了TW，因为在我的人生中，TW曾使我找到了对技术的热情以及对其的卓越追求，产生了对TWer代表的这一类技术精英们的崇敬与向往之意，让我看到了专业的人来做专业的事能产生的社会价值以及影响力，以致毕业那时没能进入TW让我觉得这算是我此次人生的一大憾事。</p><p></p>
-            <p class="article-more-link">
-                <a href="/2016/08/13/ThoughtWorks三个月工作记录与总结/#more">Read More</a>
-            </p>
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://wfsovereign.github.io/2016/08/13/ThoughtWorks三个月工作记录与总结/" data-id="ck39qg4pf004lzkcto7n5umzc" class="article-share-link"><i class="fas fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://wfsovereign.github.io/2016/08/13/ThoughtWorks三个月工作记录与总结/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://wfsovereign.github.io/2016/08/13/ThoughtWorks三个月工作记录与总结/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <nav id="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
 </section>
             
@@ -1659,6 +1661,25 @@ ga('send', 'pageview');
         <h3 class="widget-title">recent</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/12/16/行走在阳光下的那些不可见字符/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/thumbnail/zero-width-character.png)" alt="行走在阳光下的那些不可见字符" class="thumbnail-image"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/探索/">探索</a></p>
+                            <p class="item-title"><a href="/2019/12/16/行走在阳光下的那些不可见字符/" class="title">行走在阳光下的那些不可见字符</a></p>
+                            <p class="item-date"><time datetime="2019-12-16T14:29:48.000Z" itemprop="datePublished">2019-12-16</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -1736,25 +1757,6 @@ ga('send', 'pageview');
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/05/10/NGINX按天生成日志文件的简易配置/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/thumbnail/nginx.png)" alt="NGINX按天生成日志文件的简易配置" class="thumbnail-image"></span>
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/经历/">经历</a></p>
-                            <p class="item-title"><a href="/2018/05/10/NGINX按天生成日志文件的简易配置/" class="title">NGINX按天生成日志文件的简易配置</a></p>
-                            <p class="item-date"><time datetime="2018-05-10T09:45:27.000Z" itemprop="datePublished">2018-05-10</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1764,7 +1766,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TDD/">TDD</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/angular2/">angular2</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/npm/">npm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/交流分享/">交流分享</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/术/">术</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/经历/">经历</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">3</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TDD/">TDD</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/angular2/">angular2</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/nodejs/">nodejs</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/npm/">npm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/交流分享/">交流分享</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/探索/">探索</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/术/">术</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/经历/">经历</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -1773,7 +1775,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1782,7 +1784,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">tags</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/NGINX/">NGINX</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TWI/">TWI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThoughtWorks/">ThoughtWorks</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ignore/">ignore</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/">npm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/picbling/">picbling</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/refactor/">refactor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/">shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/typescript/">typescript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人学习翻译/">个人学习翻译</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代理模式/">代理模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/单例模式/">单例模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/原型/">原型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习/">学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/对象/">对象</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工作/">工作</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工厂模式/">工厂模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/志愿者/">志愿者</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总结/">总结</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/成长/">成长</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文件/">文件</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/方法记录/">方法记录</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/比赛/">比赛</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/独立/">独立</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/重构/">重构</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/NGINX/">NGINX</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TWI/">TWI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ThoughtWorks/">ThoughtWorks</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ignore/">ignore</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/">npm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/picbling/">picbling</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/refactor/">refactor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell/">shell</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/typescript/">typescript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/unicode/">unicode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人学习翻译/">个人学习翻译</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代理模式/">代理模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/单例模式/">单例模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/原型/">原型</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习/">学习</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/对象/">对象</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工作/">工作</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工具/">工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工厂模式/">工厂模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/志愿者/">志愿者</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总结/">总结</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/成长/">成长</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文件/">文件</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/方法记录/">方法记录</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/比赛/">比赛</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/独立/">独立</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/重构/">重构</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -1791,7 +1793,7 @@ ga('send', 'pageview');
     <div class="widget-wrap">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/NGINX/" style="font-size: 10px;">NGINX</a> <a href="/tags/TWI/" style="font-size: 10px;">TWI</a> <a href="/tags/ThoughtWorks/" style="font-size: 10px;">ThoughtWorks</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/ignore/" style="font-size: 10px;">ignore</a> <a href="/tags/java/" style="font-size: 14px;">java</a> <a href="/tags/javascript/" style="font-size: 16px;">javascript</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/nodejs/" style="font-size: 12px;">nodejs</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/picbling/" style="font-size: 10px;">picbling</a> <a href="/tags/refactor/" style="font-size: 10px;">refactor</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/typescript/" style="font-size: 10px;">typescript</a> <a href="/tags/个人学习翻译/" style="font-size: 12px;">个人学习翻译</a> <a href="/tags/代理模式/" style="font-size: 10px;">代理模式</a> <a href="/tags/单例模式/" style="font-size: 10px;">单例模式</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/学习/" style="font-size: 10px;">学习</a> <a href="/tags/对象/" style="font-size: 10px;">对象</a> <a href="/tags/工作/" style="font-size: 12px;">工作</a> <a href="/tags/工厂模式/" style="font-size: 10px;">工厂模式</a> <a href="/tags/志愿者/" style="font-size: 10px;">志愿者</a> <a href="/tags/总结/" style="font-size: 16px;">总结</a> <a href="/tags/成长/" style="font-size: 20px;">成长</a> <a href="/tags/文件/" style="font-size: 12px;">文件</a> <a href="/tags/方法记录/" style="font-size: 18px;">方法记录</a> <a href="/tags/比赛/" style="font-size: 10px;">比赛</a> <a href="/tags/独立/" style="font-size: 12px;">独立</a> <a href="/tags/设计模式/" style="font-size: 14px;">设计模式</a> <a href="/tags/重构/" style="font-size: 10px;">重构</a>
+            <a href="/tags/NGINX/" style="font-size: 10px;">NGINX</a> <a href="/tags/TWI/" style="font-size: 10px;">TWI</a> <a href="/tags/ThoughtWorks/" style="font-size: 10px;">ThoughtWorks</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/ignore/" style="font-size: 10px;">ignore</a> <a href="/tags/java/" style="font-size: 13.33px;">java</a> <a href="/tags/javascript/" style="font-size: 16.67px;">javascript</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/nodejs/" style="font-size: 11.67px;">nodejs</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/picbling/" style="font-size: 10px;">picbling</a> <a href="/tags/refactor/" style="font-size: 10px;">refactor</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/typescript/" style="font-size: 10px;">typescript</a> <a href="/tags/unicode/" style="font-size: 10px;">unicode</a> <a href="/tags/个人学习翻译/" style="font-size: 11.67px;">个人学习翻译</a> <a href="/tags/代理模式/" style="font-size: 10px;">代理模式</a> <a href="/tags/单例模式/" style="font-size: 10px;">单例模式</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/学习/" style="font-size: 10px;">学习</a> <a href="/tags/对象/" style="font-size: 10px;">对象</a> <a href="/tags/工作/" style="font-size: 11.67px;">工作</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/工厂模式/" style="font-size: 10px;">工厂模式</a> <a href="/tags/志愿者/" style="font-size: 10px;">志愿者</a> <a href="/tags/总结/" style="font-size: 15px;">总结</a> <a href="/tags/成长/" style="font-size: 20px;">成长</a> <a href="/tags/文件/" style="font-size: 11.67px;">文件</a> <a href="/tags/方法记录/" style="font-size: 18.33px;">方法记录</a> <a href="/tags/比赛/" style="font-size: 10px;">比赛</a> <a href="/tags/独立/" style="font-size: 11.67px;">独立</a> <a href="/tags/设计模式/" style="font-size: 13.33px;">设计模式</a> <a href="/tags/重构/" style="font-size: 10px;">重构</a>
         </div>
     </div>
 
