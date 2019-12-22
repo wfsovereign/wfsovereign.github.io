@@ -3,22 +3,22 @@
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
     
-    <title>行走在阳光下的那些不可见字符 | f.君</title>
+    <title>Unicode字符集的由来 | f.君</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="假设我们已经知道Unicode字符集，如果不清楚也可阅读本文，然后等待下一篇主要介绍Unicode的文章。  背景今天我们主要来聊聊这些行走在阳光下的不可见字符。不可见字符在计算机科学和通信学中被称为控制字符或非打印字符，是字符集中的一个码位（code point），不是一个书面符号，也就是在一般的书面呈现环境中它是不可见字符。">
-<meta name="keywords" content="javascript,unicode,工具">
+    <meta name="description" content="本文起源于行走在阳光下的那些不可见字符中的知识边界，因为涉及到字符相关，而我也不能很清楚的描述Unicode的前世今生，故而有了此文。  ​    计算机技术的革命极大地方便了人们的工作与生活，使得人类生活前进了一大步，可是在计算机发展进程中，世界各地由于语言文字不一，有过那么一段混乱难受的日子…">
+<meta name="keywords" content="总结,Unicode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="行走在阳光下的那些不可见字符">
-<meta property="og:url" content="http://wfsovereign.github.io/2019/12/16/行走在阳光下的那些不可见字符/index.html">
+<meta property="og:title" content="Unicode字符集的由来">
+<meta property="og:url" content="http://wfsovereign.github.io/2019/12/22/Unicode字符集的由来/index.html">
 <meta property="og:site_name" content="f.君">
-<meta property="og:description" content="假设我们已经知道Unicode字符集，如果不清楚也可阅读本文，然后等待下一篇主要介绍Unicode的文章。  背景今天我们主要来聊聊这些行走在阳光下的不可见字符。不可见字符在计算机科学和通信学中被称为控制字符或非打印字符，是字符集中的一个码位（code point），不是一个书面符号，也就是在一般的书面呈现环境中它是不可见字符。">
+<meta property="og:description" content="本文起源于行走在阳光下的那些不可见字符中的知识边界，因为涉及到字符相关，而我也不能很清楚的描述Unicode的前世今生，故而有了此文。  ​    计算机技术的革命极大地方便了人们的工作与生活，使得人类生活前进了一大步，可是在计算机发展进程中，世界各地由于语言文字不一，有过那么一段混乱难受的日子…">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://wfsovereign.github.io/thumbnail/zero-width-character.png">
-<meta property="og:updated_time" content="2019-12-16T15:22:00.937Z">
+<meta property="og:image" content="http://wfsovereign.github.io/images/unicode_main_image.png">
+<meta property="og:updated_time" content="2019-12-22T10:22:56.046Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="行走在阳光下的那些不可见字符">
-<meta name="twitter:description" content="假设我们已经知道Unicode字符集，如果不清楚也可阅读本文，然后等待下一篇主要介绍Unicode的文章。  背景今天我们主要来聊聊这些行走在阳光下的不可见字符。不可见字符在计算机科学和通信学中被称为控制字符或非打印字符，是字符集中的一个码位（code point），不是一个书面符号，也就是在一般的书面呈现环境中它是不可见字符。">
-<meta name="twitter:image" content="http://wfsovereign.github.io/thumbnail/zero-width-character.png">
+<meta name="twitter:title" content="Unicode字符集的由来">
+<meta name="twitter:description" content="本文起源于行走在阳光下的那些不可见字符中的知识边界，因为涉及到字符相关，而我也不能很清楚的描述Unicode的前世今生，故而有了此文。  ​    计算机技术的革命极大地方便了人们的工作与生活，使得人类生活前进了一大步，可是在计算机发展进程中，世界各地由于语言文字不一，有过那么一段混乱难受的日子…">
+<meta name="twitter:image" content="http://wfsovereign.github.io/images/unicode_main_image.png">
     
 
     
@@ -200,23 +200,15 @@ ga('send', 'pageview');
 </aside>
 
             
-            <section id="main"><article id="post-行走在阳光下的那些不可见字符" class="article article-type-post" itemscope="" itemprop="blogPost">
+            <section id="main"><article id="post-Unicode字符集的由来" class="article article-type-post" itemscope="" itemprop="blogPost">
     <div class="article-inner">
-        
-            
-	
-		<img src="/thumbnail/zero-width-character.png" class="article-banner">
-	
-
-
-
         
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-            行走在阳光下的那些不可见字符
+            Unicode字符集的由来
         </h1>
     
 
@@ -225,8 +217,8 @@ ga('send', 'pageview');
                         
     <div class="article-date">
         <i class="fas fa-calendar-alt"></i>
-        <a href="/2019/12/16/行走在阳光下的那些不可见字符/">
-            <time datetime="2019-12-16T14:29:48.000Z" itemprop="datePublished">2019-12-16</time>
+        <a href="/2019/12/22/Unicode字符集的由来/">
+            <time datetime="2019-12-22T08:13:23.000Z" itemprop="datePublished">2019-12-22</time>
         </a>
     </div>
 
@@ -240,7 +232,7 @@ ga('send', 'pageview');
                         
     <div class="article-tag">
         <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/javascript/">javascript</a>, <a class="tag-link" href="/tags/unicode/">unicode</a>, <a class="tag-link" href="/tags/工具/">工具</a>
+        <a class="tag-link" href="/tags/Unicode/">Unicode</a>, <a class="tag-link" href="/tags/总结/">总结</a>
     </div>
 
                     </div>
@@ -252,39 +244,30 @@ ga('send', 'pageview');
         
             
             <blockquote>
-<p>假设我们已经知道Unicode字符集，如果不清楚也可阅读本文，然后等待下一篇主要介绍Unicode的文章。</p>
+<p>本文起源于<a href="http://wfsovereign.github.io/2019/12/16/%E8%A1%8C%E8%B5%B0%E5%9C%A8%E9%98%B3%E5%85%89%E4%B8%8B%E7%9A%84%E9%82%A3%E4%BA%9B%E4%B8%8D%E5%8F%AF%E8%A7%81%E5%AD%97%E7%AC%A6/">行走在阳光下的那些不可见字符</a>中的知识边界，因为涉及到字符相关，而我也不能很清楚的描述Unicode的前世今生，故而有了此文。</p>
 </blockquote>
-<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>今天我们主要来聊聊这些行走在阳光下的不可见字符。不可见字符在计算机科学和通信学中被称为控制字符或非打印字符，是字符集中的一个码位（code point），不是一个书面符号，也就是在一般的书面呈现环境中它是不可见字符。<br><a id="more"></a></p>
-<p>在前端的世界里，我们翻看MDN的文档就能看到相关信息，比如<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" rel="noopener">String</a>的 转义字符（Escape Notation）模块就有介绍，<br><img src="/images/zero-width-character-mdn-string.png" alt=""></p>
-<p>我们可以尝试，在这些转义字符中，如 ‘\f’， ‘\b’等我们去新建一个这样的字符串变量然后console出来是看不见的，但是我们去看该字符串的长度却不等于0。<br><img src="/images/zero-width-character-console.png" alt=""></p>
-<p>我们可以在<a href="https://www.ecma-international.org/ecma-262/5.1/#sec-7.8.4" target="_blank" rel="noopener">ECMAScript标准</a>中找到相关介绍</p>
+<p>​    <img src="/images/unicode_main_image.png" alt=""><br>计算机技术的革命极大地方便了人们的工作与生活，使得人类生活前进了一大步，可是在计算机发展进程中，世界各地由于语言文字不一，有过那么一段混乱难受的日子…<br><a id="more"></a></p>
+<h2 id="字符世界的起源"><a href="#字符世界的起源" class="headerlink" title="字符世界的起源"></a>字符世界的起源</h2><p>由于计算机在美国诞生，因此字符集最初也只考虑了美国人当时的需求，诞生了大家熟知的ASCII（American Standard Code for Information Interchange），它由26个基本拉丁字母、阿拉伯数字、英式标点符号和一些控制字符组成。<br><img src="/images/unicode-character-set-ASCII_table.jpg" alt="ASCII表"></p>
+<p>随着世界的发展，各国人民也开始接触计算机，然而各国人民也有自己独特的文化需求，最开始的字符集满足不了人们日益增长的需求，各国出现了不同的字符集标准，比如国内早期的Java程序员熟知的GBK、GB18030等，我曾经实习的时候接触的用JSP的老系统里就有相关的编码设定，如果用错误编码设定了文档解析格式，可能就会看到乱码，再想想世界上那么多个国家，会有多少编码标准啊，这也是互联网早期乱码比较多的原因吧。</p>
+<p>各种编码的字符互不兼容，相互之间的通信可能由于编码的不同，而导致对方看到的是乱码，这就如中国历史中的大秦统一文字和度量单位之前的华夏文明一样，语言不通、货币不通，交流困难。时间的车轮滚滚向前，推动着历史的发展，于是Unicode（Universal Coded Character Set）出现了，它对世界上大部分的文字系统进行了整理、编码，使得计算机能够以更简单的方式来呈现和处理字符，它的目的就是为所有的字符提供统一的编码，任何的平台、系统、设备、应用或者语言都能兼容且无风险使用。至今Unicode仍在不断的增修，当前最新版本为2019年5月公布的12.1，包含137994个字符，不仅包括当今世界上150种语言模型和历史性的手写码和符号，还包括多种符号集与表情符号。</p>
+<h2 id="Unicode"><a href="#Unicode" class="headerlink" title="Unicode"></a>Unicode</h2><p>九层之台，起于累土。这样世界性的标准绝不是一蹴而就，必有其坚实的基础，设计原则就是Unicode的一大基础，在<a href="http://www.unicode.org/versions/Unicode6.2.0/ch02.pdf" target="_blank" rel="noopener">《The Unicode Standard Version 6.2 - Core Specification》</a>有提到Unicode的设计原则，<img src="/images/unicode-character-set-design_principles.png" alt="Unicode Design Principles"></p>
+<p>我们熟知的UTF-8其实是Unicode的一种实现方式，即Unicode 转换格式（Unicode Transform Format），是一种为了减少传输数据的大小而设计的变长编码，每个字符使用1/2/3字节按照一定算法进行转换识别。此外，Unicode的实现方式还包括UTF-7、UTF-16、UTF-32、punycode、GB18030等。</p>
+<p>总的来说，Unicode于乱世出生逐渐成为标准统一字符世界，至今仍持续发展，造福了社会，极大的提升了生产效率，虽未与ASCII并列与IEEE里程碑，但也是计算机科学史中一件举足轻重的大事记。</p>
+<p>本次探索到此结束，全文本着追溯Unicode是什么为什么产生等问题，进行了一系列追寻，大致理清了Unicode的一些“前世今生”，基本对Unicode能够有个大概的认知，需要更加深入的探索的小伙伴可以留言一起探讨~</p>
 <blockquote>
-<p>A string literal is zero or more characters enclosed in single or double quotes. Each character may be represented by an escape sequence. All characters may appear literally in a string literal except for the closing quote character, backslash, carriage return, line separator, paragraph separator, and line feed. Any character may appear in the form of an escape sequence.</p>
+<p>冬至快乐哦~</p>
+<p>ps: 及时总结，静心沉淀；如风少年，砥砺前行。<br>欢迎关注我的公众号 “和F君一起xx”</p>
 </blockquote>
-<p>就是除了”closing quote character, backslash, carriage return, line separator, paragraph separator, and line feed” 都能在字符串中逐字的出现。</p>
-<h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><p>总的来说不可见字符最大的作用就是不可见性，那么我们可以利用这个生成一些带有不可见字符的信息展示在某些地方。那么，怎么去生成这一整套工具呢？让我们来做一下任务拆解，</p>
+<p>reference：</p>
 <ol>
-<li>将特定的信息生成不可见字符，即隐形加密</li>
-<li>将不可见字符与需要显示的信息也就是明文信息组合生成最后的展示文本信息，即明文与密文的组合</li>
-<li>能够将上一步生成的展示文本信息解析得到原始的可见的特定信息，即反隐形加密</li>
-</ol>
-<p>根据以上任务步骤，就能进行功能开发了，</p>
-<h3 id="隐形加密"><a href="#隐形加密" class="headerlink" title="隐形加密"></a>隐形加密</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">const</span> zeroWidthSpace = <span class="string">'\u200B'</span></span><br><span class="line">  <span class="keyword">const</span> zeroWidthJoiner = <span class="string">'\u200D'</span></span><br><span class="line">  <span class="keyword">const</span> zeroWidthNonJoiner = <span class="string">'\u200C'</span></span><br><span class="line">  <span class="keyword">const</span> zeroWidthNonBreakSpace = <span class="string">'\uFEFF'</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">createEncryptionText</span>(<span class="params">text</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!text || <span class="keyword">typeof</span> text !== <span class="string">'string'</span>) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'invalid param, param must be string'</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> binaryText = textToBinary(text)</span><br><span class="line">  <span class="keyword">return</span> binaryText</span><br><span class="line">    .split(<span class="string">''</span>)</span><br><span class="line">    .map(<span class="function"><span class="params">b</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> num = <span class="built_in">parseInt</span>(b, <span class="number">10</span>)</span><br><span class="line">      <span class="keyword">if</span> (num === <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> zeroWidthSpace</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (num === <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> zeroWidthNonJoiner</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">return</span> zeroWidthJoiner</span><br><span class="line">    &#125;)</span><br><span class="line">    .join(zeroWidthNonBreakSpace)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">charToBinary</span>(<span class="params">char</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> char.charCodeAt(<span class="number">0</span>).toString(<span class="number">2</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">textToBinary</span>(<span class="params">text</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> text</span><br><span class="line">       .split(<span class="string">''</span>)</span><br><span class="line">       .map(<span class="function"><span class="params">item</span> =&gt;</span> padStar(charToBinary(item)))</span><br><span class="line">       .join(<span class="string">' '</span>)</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">padStar</span>(<span class="params">text, length = <span class="number">8</span>, chars = <span class="string">'0'</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> text !== <span class="string">'string'</span>) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'invalid params. text must be string'</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="built_in">Array</span>(length)</span><br><span class="line">        .fill(chars)</span><br><span class="line">        .slice(text.length) + text</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(createEncryptionText(<span class="string">'wfsovereign'</span>)) <span class="comment">// ""</span></span><br><span class="line">  <span class="built_in">console</span>.log(createEncryptionText(<span class="string">'wfsovereign'</span>).length) <span class="comment">// 195</span></span><br></pre></td></tr></table></figure>
-<p>这里首先准备了一些隐形的Unicode字符用于对要加密文本（后面称之为签名）的替换，然后定义好替换的规则，将签名先转换成二进制然后逐位进行替换。上面我们可以看到加密后的文本输出好似一个空字符串，然而我们看到该字符串的长度却是195，由此证明我们成功的将签名转化为了隐形文本。</p>
-<p>对于2、3点这里我们就不展开详说了，我将整个加解密以及隐形码位的提取抽成了一个<em>ZeroWidthCharacterEncryptionManager</em> 类，然后将代码放到了<a href="https://github.com/wfsovereign/some_tools" target="_blank" rel="noopener">我的GitHub</a>，感兴趣的同学可以移步查阅。其中需要的注意的两点这里我提一下，一个是反隐形加密的时候要按照加密的规则一一对应，这样才能得到原始签名；另一个是提取一段文本内容的时候，我采用的是正则，这个正则如何写是根据我们采取的一些隐形的码位来定的，比如上面我选择的zeroWIdthSpace等，对应的正则就应该是<em>/[\u200B-\u200C\uFEFF]+/</em> 。</p>
-<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><p>根据上面的工具类，我们看到的一个应用场景就是在一段文本中加上隐形签名或者水印，这样我们生成的文本内容如果被他人传播的话，就能通过隐形签名来检测是否是从我们这里传播出去的，感觉还能保护版权啥的，和在一些网站copy内容会自动带上出处的做法有异曲同工之妙啊~</p>
-<p>那么，此外还有没有其他作用？这就要看聪明的你的奇思妙想咯 ：）</p>
-<blockquote>
-<p>ps: 青天白日下的阴影之处啊~</p>
-<p>欢迎关注我的公众号 —— 和F君一起xx</p>
-</blockquote>
-<p>参考资料：</p>
-<ol>
-<li><a href="https://en.wikipedia.org/wiki/Control_character" target="_blank" rel="noopener">Control Character</a></li>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String" target="_blank" rel="noopener">String MDN</a></li>
-<li><a href="https://medium.com/@umpox/be-careful-what-you-copy-invisibly-inserting-usernames-into-text-with-zero-width-characters" target="_blank" rel="noopener">Be careful what you copy: Invisible inserting usernames into text width zero width characters</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Zero-width_non-joiner" target="_blank" rel="noopener">Zero width non joiner</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Zero-width_space" target="_blank" rel="noopener">Zero width space</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/Unicode" target="_blank" rel="noopener">Unicode Zh</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Unicode" target="_blank" rel="noopener">Unicode En</a></li>
+<li><a href="http://www.unicode.org/charts/" target="_blank" rel="noopener">Unicode Charts Index</a></li>
+<li><a href="https://www.unicode.org/ucd/" target="_blank" rel="noopener">Unicode Character Database</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/IEEE里程碑列表" target="_blank" rel="noopener">IEEE里程碑列表</a></li>
+<li><a href="https://en.wikipedia.org/wiki/ENIAC" target="_blank" rel="noopener">ENIAC</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/ASCII" target="_blank" rel="noopener">ASCII</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Script_(Unicode" target="_blank" rel="noopener">Unicode Script</a>)</li>
 </ol>
 
         
@@ -296,7 +279,7 @@ ga('send', 'pageview');
 
 </div>
 
-    <a data-url="http://wfsovereign.github.io/2019/12/16/行走在阳光下的那些不可见字符/" data-id="ck4gqy1ss001pytctk75belh6" class="article-share-link"><i class="fas fa-share"></i>Share</a>
+    <a data-url="http://wfsovereign.github.io/2019/12/22/Unicode字符集的由来/" data-id="ck4gqy1s10007ytctge8vcq65" class="article-share-link"><i class="fas fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -364,7 +347,7 @@ ga('send', 'pageview');
 
             
     
-        <a href="http://wfsovereign.github.io/2019/12/16/行走在阳光下的那些不可见字符/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://wfsovereign.github.io/2019/12/16/行走在阳光下的那些不可见字符/">Comments</a>
+        <a href="http://wfsovereign.github.io/2019/12/22/Unicode字符集的由来/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://wfsovereign.github.io/2019/12/22/Unicode字符集的由来/">Comments</a>
     
 
         </footer>
@@ -373,19 +356,10 @@ ga('send', 'pageview');
         
 <nav id="article-nav">
     
-        <a href="/2019/12/22/Unicode字符集的由来/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
-            <div class="article-nav-title">
-                
-                    Unicode字符集的由来
-                
-            </div>
-        </a>
     
-    
-        <a href="/2019/11/22/三个月（敏捷）项目收获/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2019/12/16/行走在阳光下的那些不可见字符/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">三个月（敏捷）项目收获</div>
+            <div class="article-nav-title">行走在阳光下的那些不可见字符</div>
         </a>
     
 </nav>
@@ -585,9 +559,9 @@ ga('send', 'pageview');
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'http://wfsovereign.github.io/2019/12/16/行走在阳光下的那些不可见字符/';
+            this.page.url = 'http://wfsovereign.github.io/2019/12/22/Unicode字符集的由来/';
         
-        this.page.identifier = '行走在阳光下的那些不可见字符';
+        this.page.identifier = 'Unicode字符集的由来';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
